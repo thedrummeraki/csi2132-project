@@ -1,0 +1,32 @@
+<div class="body h-100">
+  <div class="text-center div-center">
+
+    <p><%= render 'devise/sessions/new/switch_to' %></p>
+
+    <h2>Welcome back, dear <%= resource_name %>.</h2>
+
+    <p class="text-muted">
+      Please enter your credentials below.
+    </p>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-signin'}) do |f| %>
+
+      <%= f.label :email, class: 'sr-only' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email address' %>
+
+      <%= f.label :password, class: 'sr-only' %>
+      <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Password' %>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="checkbox mb-3">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <%= f.submit "Log in", class: 'btn btn-sm btn-primary btn-block' %>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

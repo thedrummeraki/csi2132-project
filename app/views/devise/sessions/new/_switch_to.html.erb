@@ -1,0 +1,11 @@
+<div class="w-100">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <% if resource_name.to_s == 'customer' %>
+      <button type="button" class="btn btn-small btn-secondary">Customer</button>
+      <%= link_to 'Employee', new_employee_session_path, class: 'btn btn-small btn-outline-secondary' %>
+    <% elsif resource_name.to_s == 'employee' %>
+      <%= link_to 'Customer', new_customer_session_path, class: 'btn btn-small btn-outline-secondary' %>
+      <button type="button" class="btn btn-small btn-secondary">Employee</button>
+    <% end %>
+  </div>
+</div>
