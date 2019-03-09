@@ -1,0 +1,2 @@
+class HotelChain < ApplicationRecord
+end
