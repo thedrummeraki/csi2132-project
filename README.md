@@ -74,7 +74,7 @@ rails s
 > Please note that you will not be able to access the DBMS if you have not been added to the Heroku project.
 That's very simple. All you need to do is:
 ```
-heroku psql -a csi2132-project
+heroku psql -a csi2132-e-hotels
 ```
 This will open a PostgreSQL command interface in which you will be able to run basic PostgreSQL commands.
 
