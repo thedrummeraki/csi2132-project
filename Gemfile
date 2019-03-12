@@ -29,6 +29,9 @@ gem 'jquery-ui-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'material_icons'
 
+# Composite primary keys
+gem 'composite_primary_keys'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -38,6 +41,7 @@ group :development, :test do
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.3.6'
+  gem 'dotenv-rails'
 end
 
 group :development do

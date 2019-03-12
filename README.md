@@ -12,10 +12,11 @@ This is a course project. The goal is to develop a hotels management system in o
 The project is hosted at [https://csi2132-e-hotels.herokuapp.com](https://csi2132-e-hotels.herokuapp.com).
 
 ### Where is the SQL?
-All SQL can be found under the `[db/sql](https://github.com/thedrummeraki/csi2132-project/tree/master/db/sql)` folder.
+The database structure can be found at [csi2132-project/db/structure.sql]
+(https://github.com/thedrummeraki/csi2132-project/tree/master/db/structure.sql).
 
 ### Where is the Database?
-The database uses a [Heroku database](https://devcenter.heroku.com/articles/heroku-postgresql) 
+The database uses a [Heroku database](https://devcenter.heroku.com/articles/heroku-postgresql)
 [plugin](https://elements.heroku.com/addons/heroku-postgresql). A valid Heroku account that has access to the
 project `csi2132-e-hotels` will be necessary to project's database. See below for more info.
 
@@ -63,14 +64,30 @@ heroku login -i
 ```
 
 ### How do I run this project?
+First of all, please clone and CD into the directory. Install all package by
+running `bundle`.
 ```
 git clone git@github.com:thedrummeraki/csi2132-project.git
 cd csi2132-project/
 bundle
+```
+
+Then please setup these environment variables by creating a `.env` file.
+Put this file on the project's root folder.
+```
+E_HOTELS_DB_USER=<your PostgreSQL DB username (default: user)>
+E_HOTELS_DB_PASSWORD=<your PostgreSQL DB password (default: password)>
+E_HOTELS_DB_HOST=<your PostgreSQL DB host (default: localhost)>
+E_HOTELS_DB_PORT=<your PostgreSQL DB port (default: 5432)>
+```
+
+Then finally:
+```
+rails db:set
 rails s
 ```
 
-### I want to access the database
+### I want to access the (production) database
 > Please note that you will not be able to access the DBMS if you have not been added to the Heroku project.
 That's very simple. All you need to do is:
 ```
@@ -80,8 +97,5 @@ This will open a PostgreSQL command interface in which you will be able to run b
 
 > Please note that connecting to a PostgreSQL database on the University of Ottawa will not work. The connection will simply timeout.
 
-Since Heroku uses PostgreSQL hosted on Amazon AWS, you can use PG Admin. Please view this 
+Since Heroku uses PostgreSQL hosted on Amazon AWS, you can use PG Admin. Please view this
 [link](https://stackoverflow.com/questions/11769860/connect-to-a-heroku-database-with-pgadmin) for additional help.
-
-
-
