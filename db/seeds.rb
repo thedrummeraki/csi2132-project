@@ -54,6 +54,8 @@ Employee.create([
   {
     sin: '000-000-003',
     full_name: 'Manager SB',
+    email: 'manager-sb@email.com',
+    password: 'password',
     manager_sin: '000-000-003',
     role: 'admin',
     hotel_id: Hotel.first.id,
@@ -62,6 +64,8 @@ Employee.create([
   {
     sin: '000-000-001',
     full_name: 'Admin SB',
+    email: 'admin-sb@email.com',
+    password: 'password',
     manager_sin: '000-000-003',
     role: 'admin',
     hotel_id: Hotel.second.id,
@@ -70,6 +74,8 @@ Employee.create([
   {
     sin: '000-000-002',
     full_name: 'Admin ACF',
+    email: 'admin-acf@email.com',
+    password: 'password',
     manager_sin: '000-000-003',
     role: 'admin',
     hotel_id: Hotel.third.id,
@@ -78,6 +84,8 @@ Employee.create([
   {
     sin: '000-000-004',
     full_name: 'Employee ACF',
+    email: 'employee-acf@email.com',
+    password: 'password',
     manager_sin: '000-000-003',
     role: 'admin',
     hotel_id: Hotel.first.id,
