@@ -30,7 +30,10 @@
   </div>
 
   <div class="my-2 my-lg-0">
-    <div class="dropdown">
+    <% if logged_in? %>
+      <%= link_to 'Logout', destroy_current_session_path, class: 'nav-link', method: :delete %>
+    <% else %>
+      <div class="dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Log in...
         </a>
@@ -38,6 +41,7 @@
           <%= link_to 'Customer', new_customer_session_path, class: 'dropdown-item' %>
           <%= link_to 'Employee', new_employee_session_path, class: 'dropdown-item' %>
         </div>
-    </div>
+      </div>
+    <% end %>
   </div>
 </nav>

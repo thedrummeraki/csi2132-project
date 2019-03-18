@@ -10,13 +10,13 @@
 
 Address.create([
   {
-    street_number: 234, street_name: 'Friel Street', postal_code: 'K1N 1H6'
+    street_number: 234, street_name: 'Friel Street', postal_code: 'K1N 1H6', city: 'Ottawa', province_state: 'Ontario', country: 'Canada'
   },
   {
-    street_number: 290, street_name: 'Rideau Street', postal_code: 'K1N 5Y2'
+    street_number: 290, street_name: 'Rideau Street', postal_code: 'K1N 5Y2', city: 'Ottawa', province_state: 'Ontario', country: 'Canada'
   },
   {
-    street_number: 90, street_name: 'University Private', postal_code: 'K1N 6H5'
+    street_number: 90, street_name: 'University Private', postal_code: 'K1N 6H5', city: 'Ottawa', province_state: 'Ontario', country: 'Canada'
   }
 ])
 

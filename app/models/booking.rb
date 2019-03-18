@@ -1,4 +1,4 @@
 class Booking < ApplicationRecord
   belongs_to :customer, foreign_key: :customer_sin
-  has_one :room
+  belongs_to :room, foreign_key: [:room_number, :hotel_id]
 end

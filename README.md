@@ -64,7 +64,7 @@ heroku login -i
 ```
 
 ### How do I run this project?
-First of all, please clone and CD into the directory. Install all package by
+First of all, please clone and CD into the directory. Install alls packages by
 running `bundle`.
 ```
 git clone git@github.com:thedrummeraki/csi2132-project.git
@@ -72,8 +72,7 @@ cd csi2132-project/
 bundle
 ```
 
-Then please setup these environment variables by creating a `.env` file.
-Put this file on the project's root folder.
+Then, please setup the following environment variables by creating a `.env` file at the project's root folder.
 ```
 E_HOTELS_DB_USER=<your PostgreSQL DB username (default: user)>
 E_HOTELS_DB_PASSWORD=<your PostgreSQL DB password (default: password)>
@@ -83,7 +82,7 @@ E_HOTELS_DB_PORT=<your PostgreSQL DB port (default: 5432)>
 
 Then finally:
 ```
-rails db:set
+rails db:setup
 rails s
 ```
 

@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'application#home'
 
-  resources :users, only: [] do
-    get :home, on: :collection
+  namespace :customers do
+    get :home
+  end
+
+  namespace :employees do
+    get :home
   end
 end
