@@ -23,7 +23,9 @@ Address.create([
 HotelChain.create(
   contact_email: 'reserve@uottawa.ca',
   phone_number: '6135625800',
-  street_number: 90, street_name: 'University Private', postal_code: 'K1N 6H5'
+  name: "University of Ottawa Housing",
+  street_number: 90, street_name: 'University Private', postal_code: 'K1N 6H5',
+  city: 'Ottawa', province_state: 'ON', country: 'Canada'
 )
 
 Hotel.create([
@@ -32,21 +34,24 @@ Hotel.create([
     phone_number: '6135625800',
     email: '90u@uottawa.ca',
     hotel_chain_id: HotelChain.first.id,
-    street_number: 90, street_name: 'University Private', postal_code: 'K1N 6H5'
+    street_number: 90, street_name: 'University Private', postal_code: 'K1N 6H5',
+    city: 'Ottawa', province_state: 'ON', country: 'Canada'
   },
   {
     category: 4,
     phone_number: '6135625800',
     email: 'rideau@uottawa.ca',
     hotel_chain_id: HotelChain.first.id,
-    street_number: 290, street_name: 'Rideau Street', postal_code: 'K1N 5Y2'
+    street_number: 290, street_name: 'Rideau Street', postal_code: 'K1N 5Y2',
+    city: 'Ottawa', province_state: 'ON', country: 'Canada'
   },
   {
     category: 3,
     phone_number: '6135625800',
     email: 'friel@uottawa.ca',
     hotel_chain_id: HotelChain.first.id,
-    street_number: 234, street_name: 'Friel Street', postal_code: 'K1N 1H6'
+    street_number: 234, street_name: 'Friel Street', postal_code: 'K1N 1H6',
+    city: 'Ottawa', province_state: 'ON', country: 'Canada'
   }
 ])
 
@@ -59,7 +64,8 @@ Employee.create([
     manager_sin: '000-000-003',
     role: 'admin',
     hotel_id: Hotel.first.id,
-    street_number: 90, street_name: 'University Private', postal_code: 'K1N 6H5'
+    street_number: 90, street_name: 'University Private', postal_code: 'K1N 6H5',
+    city: 'Ottawa', province_state: 'ON', country: 'Canada'
   },
   {
     sin: '000-000-001',
@@ -69,7 +75,8 @@ Employee.create([
     manager_sin: '000-000-003',
     role: 'admin',
     hotel_id: Hotel.second.id,
-    street_number: 290, street_name: 'Rideau Street', postal_code: 'K1N 5Y2'
+    street_number: 290, street_name: 'Rideau Street', postal_code: 'K1N 5Y2',
+    city: 'Ottawa', province_state: 'ON', country: 'Canada'
   },
   {
     sin: '000-000-002',
@@ -79,7 +86,8 @@ Employee.create([
     manager_sin: '000-000-003',
     role: 'admin',
     hotel_id: Hotel.third.id,
-    street_number: 234, street_name: 'Friel Street', postal_code: 'K1N 1H6'
+    street_number: 234, street_name: 'Friel Street', postal_code: 'K1N 1H6',
+    city: 'Ottawa', province_state: 'ON', country: 'Canada'
   },
   {
     sin: '000-000-004',
@@ -89,7 +97,8 @@ Employee.create([
     manager_sin: '000-000-003',
     role: 'admin',
     hotel_id: Hotel.first.id,
-    street_number: 90, street_name: 'University Private', postal_code: 'K1N 6H5'
+    street_number: 90, street_name: 'University Private', postal_code: 'K1N 6H5',
+    city: 'Ottawa', province_state: 'ON', country: 'Canada'
   }
 ])
 

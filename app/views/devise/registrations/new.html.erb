@@ -14,15 +14,25 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="form-row">
-        <div class="form-group col-md-6">
-          <%= f.label :email, class: 'sr-only' %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email address' %>
-        </div>
-        <div class="form-group col-md-6">
-          <%= f.label :email, class: 'sr-only' %>
+        <div class="form-group col-md-12">
+          <%= f.label :full_name, class: 'sr-only' %>
           <%= f.text_field :full_name, class: 'form-control', placeholder: 'Your name' %>
         </div>
       </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <%= f.label :email, class: 'sr-only' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email address' %>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+        <%= f.label :sin, class: 'sr-only' %>
+          <%= f.password_field :sin, class: 'form-control', placeholder: 'Your insecure SIN' %>
+        </div>
+      </div>
+
+      <h5>Your password</h5>
       <div class="form-row">
         <div class="form-group col-md-6">
           <%= f.label :password, class: 'sr-only' %>
@@ -35,6 +45,37 @@
           <%= f.label :password_confirmation, class: 'sr-only' %>
           <em>Please confirm your password</em>
           <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Verify your password' %>
+        </div>
+      </div>
+
+      <h5>Your address</h5>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <%= f.label :street_number, class: 'sr-only' %>
+          <%= f.number_field :street_number, class: 'form-control', placeholder: 'Street number' %>
+        </div>
+        <div class="form-group col-md-8">
+          <%= f.label :street_name, class: 'sr-only' %>
+          <%= f.text_field :street_name, class: 'form-control', placeholder: 'Street name' %>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <%= f.label :city, class: 'sr-only' %>
+          <%= f.text_field :city, class: 'form-control', placeholder: 'City' %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.label :province_state, class: 'sr-only' %>
+          <%= f.text_field :province_state, class: 'form-control', placeholder: 'Province' %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.label :postal_code, class: 'sr-only' %>
+          <%= f.text_field :postal_code, class: 'form-control', placeholder: 'Postal Code' %>
+        </div>
+        <div class="form-group col-md-3">
+          <%= f.label :country, class: 'sr-only' %>
+          <%= f.text_field :country, class: 'form-control', placeholder: 'Country' %>
         </div>
       </div>
 
@@ -70,6 +111,18 @@
     <% end %>
 
     <%= render "devise/shared/links" %>
+
+    <style>
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+          /* display: none; <- Crashes Chrome on hover */
+          -webkit-appearance: none;
+          margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+      }
+      input[type=number] {
+          -moz-appearance:textfield; /* Firefox */
+      }
+    </style>
 
   </div>
 </div>

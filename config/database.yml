@@ -12,19 +12,25 @@ default: &default
   port: 5432
 
 development:
-  <<: *default
-  database: CSI2132project
-  username: <%= ENV.fetch("E_HOTELS_DB_USER") { "user" } %>
-  password: <%= ENV.fetch("E_HOTELS_DB_PASSWORD") { "password" } %>
-  host: <%= ENV.fetch("E_HOTELS_DB_HOST") { "localhost" } %>
-  port: <%= ENV.fetch("E_HOTELS_DB_PORT") { 5432 } %>
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+  database: db/development.sqlite3
+  #<<: *default
+  #database: CSI2132project
+  #username: <%= ENV.fetch("E_HOTELS_DB_USER") { "user" } %>
+  #password: <%= ENV.fetch("E_HOTELS_DB_PASSWORD") { "password" } %>
+  #host: <%= ENV.fetch("E_HOTELS_DB_HOST") { "localhost" } %>
+  #port: <%= ENV.fetch("E_HOTELS_DB_PORT") { 5432 } %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: CSI2132project-test
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+  database: db/test.sqlite3
 
 production:
   <<: *default

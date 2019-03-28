@@ -30,10 +30,14 @@ CREATE TABLE addresses(
 CREATE TABLE hotel_chains(
     "id" bigserial PRIMARY KEY,
     contact_email VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
     phone_number VARCHAR(20) NOT NULL,
     street_number int NOT NULL,
     street_name VARCHAR(100) NOT NULL,
     postal_code VARCHAR(20) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    province_state VARCHAR(50),
+    country VARCHAR(100) NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL,
 
@@ -48,6 +52,9 @@ CREATE TABLE customers(
     street_number int NOT NULL,
     street_name VARCHAR(100) NOT NULL,
     postal_code VARCHAR(20) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    province_state VARCHAR(50),
+    country VARCHAR(100) NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL,
 
@@ -69,13 +76,16 @@ CREATE TABLE employees(
     hotel_id int NOT NULL,
     street_name VARCHAR(100) NOT NULL,
     street_number int NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    province_state VARCHAR(50),
+    country VARCHAR(100) NOT NULL,
     postal_code VARCHAR(20) NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL,
 
     email VARCHAR(255) DEFAULT '' NOT NULL,
     encrypted_password VARCHAR DEFAULT '' NOT NULL,
-    reset_password_token VARCHAR,, 'cancelled'
+    reset_password_token VARCHAR,
     reset_password_sent_at TIMESTAMP,
     remember_created_at TIMESTAMP,
 
@@ -128,6 +138,9 @@ CREATE TABLE hotels(
     street_name VARCHAR(100) NOT NULL,
     street_number int NOT NULL,
     postal_code VARCHAR(20) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    province_state VARCHAR(50),
+    country VARCHAR(100) NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL,
 
