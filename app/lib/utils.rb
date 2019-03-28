@@ -29,4 +29,8 @@ class Utils
     ]
   end
 
+  def self.rooms_from_hotels(hotels)
+    hotels.map{|hotel| hotel.rooms}.flatten.uniq
+  end
+
 end

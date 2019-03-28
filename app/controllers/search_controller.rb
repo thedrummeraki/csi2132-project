@@ -1,11 +1,21 @@
 class SearchController < ApplicationController
 
   def index
-    # Analyse search query
-    
+    @search = Search.new
+    @search.analyze!(search_params)
   end
 
-  def results
+  private
+
+  def search_params
+    params.require(:search).permit(
+      :area,
+      :capacity,
+      :hotel_chain_id,
+      :category,
+      :size,
+      :price
+    )
   end
 
 end
