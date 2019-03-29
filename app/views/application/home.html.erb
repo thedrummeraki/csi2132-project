@@ -15,7 +15,7 @@
             <input id="capacity" type="" name="search[capacity]" placeholder="Capacity" class="form-control">
           </div>
           <div class="form-group col">
-            <%= select_tag 'hotel-chain', options_for_select(HotelChain.available_chains), include_blank: "- Select a chain -", class: 'custom-select', name: 'search[hotel_chain_id]' %>
+            <%= select_tag 'hotel-chain', options_for_select(HotelChain.available_chains), include_blank: "- Select a chain -", class: 'custom-select', name: 'search[hotel_chain]' %>
           </div>
           <div class="form-group col">
             <%= select_tag 'category', options_for_select(Utils.possible_categories), include_blank: "- Select a category -", class: 'custom-select', name: 'search[category]' %>
