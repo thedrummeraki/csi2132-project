@@ -4,7 +4,7 @@ class Search
     @rooms = []
   end
 
-  def analyze!(**params)
+  def analyze!(params)
     area = params[:area].to_s
     capacity = params[:capacity].to_s
     hotel_chain_id = params[:hotel_chain].to_s
@@ -14,7 +14,7 @@ class Search
 
     final_sql = "SELECT rooms.* FROM rooms "
     final_sql << "INNER JOIN ("
-    final_sql << ""
+    final_sql << "SELECT id, room_count, category, hotel_chain_id, city, province_state, country, postal_code from hotels INNER JOIN (SELECT count(*) room_count, hotel_id FROM (SELECT * FROM rooms INNER JOIN hotels ON hotels.id = hotel_id) AS hotels GROUP BY hotel_id having count(*) > 0) AS hotels_info ON hotel_id = hotels.id"
     final_sql << ") AS hotels on rooms.hotel_id = hotels.id"
 
     additional_conditions = [
@@ -26,14 +26,11 @@ class Search
       range_to_sql(:price, price_range)
     ].reject{|condition| condition.strip.empty?}.join(' AND ')
 
-    p range_for(:price, price_range)
-
     unless additional_conditions.empty?
-      final_sql << ' WHERE '
+      final_sql << ' WHERE ' unless additional_conditions.include?("WHERE")
       final_sql << additional_conditions
     end
-    final_sql
-    #@rooms = Room.find_by_sql(final_sql)
+      @rooms = Room.find_by_sql(final_sql)
   end
 
   def rooms
@@ -70,7 +67,7 @@ class Search
           partial_sql.push "LOWER(hotels.#{attribute}) like '%#{area}%'"
         end
       end
-      partial_sql = 'WHERE ' + partial_sql.join(' OR ')
+      partial_sql = ' WHERE ' + partial_sql.join(' OR ')
     end
 
     # Build the SQL query
