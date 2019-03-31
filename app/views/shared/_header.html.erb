@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">E-hotels</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,36 +7,41 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
+      <% if logged_in? as: :customer %>
+        <li class="nav-item">
+          <%= link_to customers_bookings_path, class: 'nav-link' do %>
+            My bookings <span class="badge badge-light"><%= current_customer.bookings.count %></span>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'My account', edit_customer_registration_path, class: 'nav-link' %> 
+        </li>
+      <% elsif logged_in? as: :employee %>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Bookings & rents</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Hotels & rooms</a>
+        </li>
+        <% if current_employee.is_manager? %>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Employees</a>
+          </li>
+        <% end %>
+      <% end %>
     </ul>
   </div>
 
   <div class="my-2 my-lg-0">
     <% if logged_in? %>
-      <%= link_to 'Logout', destroy_current_session_path, class: 'nav-link', method: :delete %>
+      <%= link_to 'Logout', destroy_current_session_path, class: 'btn btn-secondary', method: :delete %>
     <% else %>
       <div class="dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-success dropdown-toggle" type="button" id="loginDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Log in...
-        </a>
+        </button>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="loginDropdown">
           <%= link_to 'Customer', new_customer_session_path, class: 'dropdown-item' %>
           <%= link_to 'Employee', new_employee_session_path, class: 'dropdown-item' %>

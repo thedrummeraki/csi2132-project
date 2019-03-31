@@ -21,3 +21,25 @@
 .div-center {
   margin: 0 auto !important;
 }
+
+.jumbotron {
+  margin-bottom: 0 !important;
+  padding: 5.5rem 2rem;
+}
+
+#error_explanation {
+  text-align: left !important;
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: #ffe5e5;
+  padding: 20px 15px 5px;
+  margin: 10px;
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+}
+
+.material-icons {
+  vertical-align: bottom !important;
+}

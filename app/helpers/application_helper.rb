@@ -12,4 +12,22 @@ module ApplicationHelper
     return destroy_employee_session_path if logged_in?(as: :employee)
   end
 
+  def badge_for(model)
+    return unless model.respond_to?(:status)
+    color = nil
+    case model.status
+    when 'started'
+      color = 'info'
+    when 'complete'
+      color = 'success'
+    when 'cancelled'
+      color = 'danger'
+    else
+      color = 'secondary'
+    end
+    content_tag :span, class: "badge badge-#{color}" do
+      model.status
+    end
+  end
+
 end
