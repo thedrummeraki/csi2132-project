@@ -30,7 +30,7 @@ class Search
       final_sql << ' WHERE ' unless additional_conditions.include?("WHERE")
       final_sql << additional_conditions
     end
-      @rooms = Room.find_by_sql(final_sql)
+    @rooms = Room.find_by_sql(final_sql)
   end
 
   def rooms
