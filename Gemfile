@@ -32,6 +32,9 @@ gem 'material_icons'
 # Composite primary keys
 gem 'composite_primary_keys'
 
+# Autocomplete
+gem 'autocomplete_rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
