@@ -31,6 +31,7 @@ class Search
       hotels_by_area_sql(area),
       get_conditions_to_sql(
         capacity: capacity,
+        category: category,
         hotel_chain_id: hotel_chain_id
       ),
       range_to_sql(:price, price_range)
@@ -40,6 +41,7 @@ class Search
       final_sql << ' WHERE ' unless additional_conditions.include?("WHERE")
       final_sql << additional_conditions
     end
+    @rooms = Room.find_by_sql(final_sql)
     !!@rooms && self
   end
 
@@ -77,7 +79,7 @@ class Search
           partial_sql.push "LOWER(hotels.#{attribute}) like '%#{area}%'"
         end
       end
-      partial_sql = ' WHERE ' + partial_sql.join(' OR ')
+      partial_sql = ' WHERE ' + "(#{partial_sql.join(' OR ')})"
     end
 
     # Build the SQL query
