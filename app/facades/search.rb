@@ -4,6 +4,11 @@ class Search
     @rooms = []
   end
 
+  def analyze(params)
+    return self unless @rooms.empty?
+    analyze!(params)
+  end
+
   def analyze!(params)
     area = params[:area].to_s
     capacity = params[:capacity].to_s
@@ -14,7 +19,12 @@ class Search
 
     final_sql = "SELECT rooms.* FROM rooms "
     final_sql << "INNER JOIN ("
-    final_sql << "SELECT id, room_count, category, hotel_chain_id, city, province_state, country, postal_code from hotels INNER JOIN (SELECT count(*) room_count, hotel_id FROM (SELECT * FROM rooms INNER JOIN hotels ON hotels.id = hotel_id) AS hotels GROUP BY hotel_id having count(*) > 0) AS hotels_info ON hotel_id = hotels.id"
+    final_sql << "SELECT hotels.* from hotels "
+    final_sql << "INNER JOIN (SELECT count(*) room_count, hotel_id FROM ("
+    final_sql << "SELECT * FROM rooms "
+    final_sql << "INNER JOIN hotels ON hotels.id = hotel_id"
+    final_sql << ") AS hotels GROUP BY hotel_id having count(*) > 0"
+    final_sql << ") AS hotels_info ON hotel_id = hotels.id"
     final_sql << ") AS hotels on rooms.hotel_id = hotels.id"
 
     additional_conditions = [
@@ -30,7 +40,8 @@ class Search
       final_sql << ' WHERE ' unless additional_conditions.include?("WHERE")
       final_sql << additional_conditions
     end
-      @rooms = Room.find_by_sql(final_sql)
+    @rooms = Room.find_by_sql(final_sql)
+    !!@rooms && self
   end
 
   def rooms
