@@ -1,0 +1,7 @@
+<div class="row" style="margin-bottom: 10px;">
+  <% rooms.each do |room| %>
+    <div class="col-md-4">
+      <%= render partial: 'shared/room', locals: {room: room} %>
+    </div>
+  <% end %>
+</div>

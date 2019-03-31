@@ -5,7 +5,7 @@
     <%= form_tag '/search', method: 'get' do %>
       <div class="form-row">
         <div class="form-group col-md-12">
-          <input type="text" name="search[area]" placeholder="Where would you like to go?" class="form-control" value="<%= @area %>">
+          <%= text_field_tag :search, @area, name: 'search[area]', data: { autocomplete: search_autocomplete_address_area_path }, class: 'form-control', placeholder: 'Where would you like to go?' %>
         </div>
       </div>
       <div class="form-row text-left">
@@ -13,16 +13,16 @@
           <input id="capacity" type="" name="search[capacity]" placeholder="Capacity" class="form-control" value="<%= @capacity %>">
         </div>
         <div class="form-group col">
-          <%= select_tag 'hotel-chain', options_for_select(HotelChain.available_chains), include_blank: "- Select a chain -", class: 'custom-select', name: 'search[hotel_chain]' %>
+          <%= select_tag 'hotel-chain', options_for_select(HotelChain.available_chains, @hotel_chain_id), include_blank: "- Select a chain -", class: 'custom-select', name: 'search[hotel_chain]' %>
         </div>
         <div class="form-group col">
-          <%= select_tag 'category', options_for_select(Utils.possible_categories), include_blank: "- Select a category -", class: 'custom-select', name: 'search[category]' %>
+          <%= select_tag 'category', options_for_select(Utils.possible_categories, @category), include_blank: "- Select a category -", class: 'custom-select', name: 'search[category]' %>
         </div>
         <div class="form-group col">
-          <%= select_tag 'size-range', options_for_select(Utils.possible_room_sizes), include_blank: "- Hotel size -", class: 'custom-select', name: 'search[size]' %>
+          <%= select_tag 'size-range', options_for_select(Utils.possible_room_sizes, @size), include_blank: "- Hotel size -", class: 'custom-select', name: 'search[size]' %>
         </div>
         <div class="form-group col">
-          <%= select_tag 'price-range', options_for_select(Utils.possible_price_ranges), include_blank: "- Price range -", class: 'custom-select', name: 'search[price]' %>
+          <%= select_tag 'price-range', options_for_select(Utils.possible_price_ranges, @price), include_blank: "- Price range -", class: 'custom-select', name: 'search[price]' %>
         </div>
       </div>
       <p>

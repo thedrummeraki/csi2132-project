@@ -1,0 +1,12 @@
+<ul>
+  <li>Room number: <%= @room.room_number %></li>
+  <li>Price: <%= number_to_currency(@room.price) %> </li>
+  <li>Capacity: <%= @room.capacity %> </li>
+  <li>Mountain View? <%= @room.mountain_view %> </li>
+  <li>Sea view? <%= @room.sea_view %> </li>
+  <li>Expandable? <%= @room.is_expandable %> </li>
+  <li>Current bookings: <%= @room.bookings.size %> </li>
+  <li>Issues: <%= @room.issues %> </li>
+  <li>Hotel: <%= @room.hotel.name %> </li>
+  <li>Address: <%= @room.hotel.address.pretty %> </li>
+</ul>
