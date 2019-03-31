@@ -17,7 +17,15 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-    super
+    if customer_signed_in?
+      if current_customer.update(update_customer_params)
+        redirect_to edit_customer_registration_path, notice: 'Your account has successfully been updated.'
+      else
+        redirect_to edit_customer_registration_path, alert: current_customer.errors.to_a.join(', ')
+      end
+    else
+      super
+    end
   end
 
   private
@@ -36,6 +44,21 @@ class RegistrationsController < Devise::RegistrationsController
       :country,
       :sin
     )
+  end
+
+  def update_customer_params
+    params.require(:customer).permit(
+      :full_name,
+      :email,
+      :password,
+      :password_confirmation,
+      :street_number,
+      :street_name,
+      :city,
+      :province_state,
+      :postal_code,
+      :country
+    ).delete_if { |k, v| v.empty? }
   end
 
   def customer_address_params
