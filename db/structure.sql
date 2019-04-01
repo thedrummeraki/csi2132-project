@@ -119,6 +119,7 @@ CREATE TABLE rentings(
     customer_sin VARCHAR(20) NOT NULL,
     room_number INT,
     hotel_id INT,
+    booking_id INT NOT NULL,
     has_booked BOOLEAN DEFAULT 't' NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL,
