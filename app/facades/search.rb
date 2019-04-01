@@ -75,11 +75,13 @@ class Search
     else
       partial_sql = []
       areas.each do |area|
+        area_sql = []
         [:city, :province_state, :country].each do |attribute|
-          partial_sql.push "LOWER(hotels.#{attribute}) like '%#{area}%'"
+          area_sql.push "LOWER(hotels.#{attribute}) like '%#{area}%'"
         end
+        partial_sql << "(#{area_sql.join(' OR ')})"
       end
-      partial_sql = ' WHERE ' + "(#{partial_sql.join(' OR ')})"
+      partial_sql = ' WHERE ' + "(#{partial_sql.join(' AND ')})"
     end
 
     # Build the SQL query
