@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     get :settings
 
     # All bookings for the current customer
-    resources :bookings
+    resources :bookings, except: [:update]
   end
 
   namespace :employees do

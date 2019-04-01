@@ -37,7 +37,7 @@
             <td><%= booking.end_date.strftime('%Y %b %d') %></td>
             <td><%= booking.room.hotel.name %></td>
             <td><%= booking.room.hotel.address.area %></td>
-            <td><%= booking.room.room_number %></td>
+            <td><%= link_to(booking.room.room_number.to_s, room_path(booking.room)) %></td>
             <td><%= number_to_currency(booking.room.price) %></td>
             <td><%= booking.created_at.strftime('%Y %b %d') %></td>
             <td><%= action_for(booking) %></td>
