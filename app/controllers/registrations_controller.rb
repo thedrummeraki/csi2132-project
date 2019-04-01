@@ -21,7 +21,7 @@ class RegistrationsController < Devise::RegistrationsController
       if current_customer.update(update_customer_params)
         redirect_to edit_customer_registration_path, notice: 'Your account has successfully been updated.'
       else
-        redirect_to edit_customer_registration_path, alert: current_customer.errors.to_a.join(', ')
+        redirect_to edit_customer_registration_path, alert: current_customer.string_errors
       end
     else
       super
