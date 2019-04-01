@@ -16,13 +16,15 @@ Rails.application.routes.draw do
 
     # All bookings for the current customer
     resources :bookings
+    resources :rentings, only: [:index]
   end
 
   namespace :employees do
     get :home
 
     # All bookings for employees
-    resources :bookings
+    resources :bookings, only: [:index, :update, :destroy]
+    resources :rentings
   end
   constraints(:id => /\w+(,\w+)*/) do
     resources :rooms, only: [:show]
