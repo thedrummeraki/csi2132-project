@@ -26,6 +26,9 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :update, :destroy]
     resources :rentings
   end
+
+  resources :hotels
+
   constraints(:id => /\w+(,\w+)*/) do
     resources :rooms, only: [:show]
   end

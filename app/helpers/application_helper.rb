@@ -12,6 +12,12 @@ module ApplicationHelper
     return destroy_employee_session_path if logged_in?(as: :employee)
   end
 
+  def true_false_icon_for(value, size: 24)
+    content_tag :i, class: 'material-icons', style: "font-size: #{size}px;" do
+      (!!value ? 'done' : 'close')
+    end
+  end
+
   def badge_for(model)
     return unless model.respond_to?(:status)
     color = nil
