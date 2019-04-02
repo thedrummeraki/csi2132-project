@@ -15,8 +15,8 @@ class Customer < ApplicationRecord
 
   before_save :set_registration_date
 
-  def avatar_url
-    "https://api.adorable.io/avatars/300/#{sin}.png"
+  def avatar_url(size: 300)
+    "https://api.adorable.io/avatars/#{size}/#{sin}.png"
   end
 
   # select 1 as one from bookings where customer_sin = {sin} and room_number = {room.room_number} and hotel_id = {room.hotel_id} limit 1;

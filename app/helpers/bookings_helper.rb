@@ -22,6 +22,22 @@ module BookingsHelper
   private
 
   def action_as_employee_for(booking)
+    case booking.status
+    when 'started'
+      content_tag :div, class: 'btn-group w-100' do
+        link_to('Check in', employees_booking_check_in_path(booking), class: 'btn btn-sm btn-success') + \
+        link_to('Cancel', customers_booking_path(booking), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?' })
+      end
+    when 'complete', 'cancelled'
+      content_tag :div, class: 'btn-group w-100' do
+        link_to('Check out', '#', class: 'btn btn-sm btn-warning') + \
+        link_to('Archive', '#', class: 'btn btn-sm btn-outline-secondary')
+      end
+    else
+      content_tag :div, class: '' do
+        'ー'
+      end
+    end
   end
 
   def action_as_customer_for(booking)

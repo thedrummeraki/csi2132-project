@@ -20,6 +20,7 @@
       <thead class="thead-light">
         <th scope="col">Ref #</th>
         <th scope="col">Status</th>
+        <th scope="col">Customer</th>
         <th scope="col">From (date)</th>
         <th scope="col">Until (date)</th>
         <th scope="col">Hotel</th>
@@ -37,6 +38,10 @@
               <%= expired_status_for(booking) %>
             </th>
             <td><%= badge_for(booking) %></td>
+            <td>
+              <%= image_tag(booking.customer.avatar_url(size: 25), class: 'tiny-avatar') %>
+              <span><%= booking.customer.full_name %></span>
+            </td>
             <td><%= booking.start_date.strftime('%Y %b %d') %></td>
             <td><%= booking.end_date.strftime('%Y %b %d') %></td>
             <td><%= booking.room.hotel.name %></td>
