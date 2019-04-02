@@ -11,6 +11,7 @@ class Customer < ApplicationRecord
 
   # SELECT * FROM bookings WHERE customer_sin = #{sin};
   has_many :bookings, foreign_key: :customer_sin
+  has_many :rentings, foreign_key: :customer_sin
 
   before_save :set_registration_date
 

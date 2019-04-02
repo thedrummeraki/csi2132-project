@@ -1,6 +1,10 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
+  def string_errors
+    errors.to_a.join ', '
+  end
+
   protected
 
   def ensure_address!

@@ -7,6 +7,9 @@ class Employee < ApplicationRecord
   belongs_to :address, foreign_key: [:street_number, :street_name, :postal_code]
   belongs_to :hotel
 
+  has_many :bookings, foreign_key: :employee_sin
+  has_many :rentings, foreign_key: :employee_sin
+
   # SELECT * FROM employees where manager_sin = #{sin} AND sin != #{sin};
   def employees
     self.class.where("manager_sin = '#{sin}' AND sin != '#{sin}'")

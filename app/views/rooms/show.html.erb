@@ -1,12 +1,64 @@
-<ul>
-  <li>Room number: <%= @room.room_number %></li>
-  <li>Price: <%= number_to_currency(@room.price) %> </li>
-  <li>Capacity: <%= @room.capacity %> </li>
-  <li>Mountain View? <%= @room.mountain_view %> </li>
-  <li>Sea view? <%= @room.sea_view %> </li>
-  <li>Expandable? <%= @room.is_expandable %> </li>
-  <li>Current bookings: <%= @room.bookings.size %> </li>
-  <li>Issues: <%= @room.issues %> </li>
-  <li>Hotel: <%= @room.hotel.name %> </li>
-  <li>Address: <%= @room.hotel.address.pretty %> </li>
-</ul>
+<script type="text/javascript">
+  $(document).ready(function() {
+    url = $('div[target]').attr('target');
+    $('div[target]').css('background-image', "url(" + url + ")");
+    $('.show-body').fadeIn(2000);
+  });
+</script>
+
+<div class="bg-white banner" target="<%= @room.hotel.image_url %>">
+  <div class="overlay">
+    <div class="title text-white">
+      <h2><%= @room.hotel.name %></h2>
+      <small><i class="material-icons">location_on</i> <%= @room.hotel.address.area %></small>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-title">
+        <div class="info-row">
+          <div class="justify-content-between w-100 d-flex">
+            <h3>Summary</h3>
+            <div>
+              <h3 style="display: inline; color: #49796B;">
+                <strong><%= number_to_currency(@room.price) %></strong>
+              </h3>
+              <small class="text-muted">per night</small>
+            </div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="container">
+            <div class="text-center">
+              <h4 class="text-muted">Room capacity</h4>
+              <% (1..@room.capacity).each do |i| %>
+                <i class="material-icons" style="font-size: 50px;">person</i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="container">
+            <div class="justify-content-between w-100 d-flex text-center">
+              <div>
+                <h4 class="text-muted">Mountain view?</h4>
+                <%= true_false_icon_for(@room.mountain_view, size: 50) %>
+              </div>
+              <div>
+                <h4 class="text-muted">Sea view?</h4>
+                <%= true_false_icon_for(@room.sea_view, size: 50) %>
+              </div>
+              <div>
+                <h4 class="text-muted">Expandable?</h4>
+                <%= true_false_icon_for(@room.is_expandable, size: 50) %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
