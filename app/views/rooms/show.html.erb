@@ -23,9 +23,10 @@
           <div class="justify-content-between w-100 d-flex">
             <h3>Summary</h3>
             <div>
-              <h3 style="display: inline; color: #49796B;">
+              <h4 style="display: inline; color: #49796B;">
+                <span class="text-muted">Rate: </span>
                 <strong><%= number_to_currency(@room.price) %></strong>
-              </h3>
+              </h4>
               <small class="text-muted">per night</small>
             </div>
           </div>
@@ -35,30 +36,40 @@
             <div class="text-center">
               <h4 class="text-muted">Room capacity</h4>
               <% (1..@room.capacity).each do |i| %>
-                <i class="material-icons" style="font-size: 50px;">person</i>
+                <i class="material-icons" style="font-size: 40px;">person</i>
               <% end %>
             </div>
           </div>
         </div>
         <div class="info-row">
           <div class="container">
-            <div class="justify-content-between w-100 d-flex text-center">
-              <div>
+            <div class="row text-center">
+              <div class="col-md-4">
                 <h4 class="text-muted">Mountain view?</h4>
-                <%= true_false_icon_for(@room.mountain_view, size: 50) %>
+                <%= true_false_icon_for(@room.mountain_view, size: 30) %>
               </div>
-              <div>
+              <div class="col-md-4">
                 <h4 class="text-muted">Sea view?</h4>
-                <%= true_false_icon_for(@room.sea_view, size: 50) %>
+                <%= true_false_icon_for(@room.sea_view, size: 30) %>
               </div>
-              <div>
+              <div class="col-md-4">
                 <h4 class="text-muted">Expandable?</h4>
-                <%= true_false_icon_for(@room.is_expandable, size: 50) %>
+                <%= true_false_icon_for(@room.is_expandable, size: 30) %>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div style="padding: 30px">
+    <h2>Also from <%= @room.hotel.name %>...</h2>
+    <%= render partial: 'shared/rooms_row', locals: {rooms: @similar_rooms, cols: 3} %>
+  </div>
+
+  <div style="padding: 30px">
+    <h2>View also...</h2>
+    <%= render partial: 'shared/rooms_row', locals: {rooms: @other_rooms, cols: 3} %>
   </div>
 </div>

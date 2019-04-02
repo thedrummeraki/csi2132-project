@@ -5,7 +5,7 @@
     <div class="container">
 
       <% @rooms_parts.each do |rooms| %>
-        <%= render partial: 'shared/rooms_row', locals: {rooms: rooms} %>
+        <%= render partial: 'shared/rooms_row', locals: {rooms: rooms, cols: 4} %>
       <% end %>
 
     </div>

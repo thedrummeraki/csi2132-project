@@ -19,6 +19,11 @@ class Customer < ApplicationRecord
     "https://api.adorable.io/avatars/300/#{sin}.png"
   end
 
+  # select 1 as one from bookings where customer_sin = {sin} and room_number = {room.room_number} and hotel_id = {room.hotel_id} limit 1;
+  def has_booked?(room)
+    !bookings.where(room_number: room.room_number, hotel_id: room.hotel_id).empty?
+  end
+
   private
 
   def set_registration_date
