@@ -1,0 +1,53 @@
+
+
+<div class="container text-center" style="padding: 40px;">
+  <h3>My bookings</h3>
+  <p class="text-muted">
+    You will see a list of all of your bookings below.
+  </p>
+</div>
+
+<div class="container-fluid">
+  <% if @bookings.empty? %>
+    <div class="text-center">
+      <strong class="text-muted">
+        It looks like you don't any bookings yet! <br />
+        <%= link_to 'Book a room now!', '/', class: 'btn btn-sm btn-info' %>
+      </strong>
+    </div>
+  <% else %>
+    <table class="table">
+      <thead class="thead-light">
+        <th scope="col">Ref #</th>
+        <th scope="col">Status</th>
+        <th scope="col">From (date)</th>
+        <th scope="col">Until (date)</th>
+        <th scope="col">Hotel</th>
+        <th scope="col">Area</th>
+        <th scope="col">Room #</th>
+        <th scope="col">Rate</th>
+        <th scope="col">Made on</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <% @bookings.each do |booking| %>
+          <tr>
+            <th scope="row">
+              <%= booking.id %>
+              <%= expired_status_for(booking) %>
+            </th>
+            <td><%= badge_for(booking) %></td>
+            <td><%= booking.start_date.strftime('%Y %b %d') %></td>
+            <td><%= booking.end_date.strftime('%Y %b %d') %></td>
+            <td><%= booking.room.hotel.name %></td>
+            <td><%= booking.room.hotel.address.area %></td>
+            <td><%= booking.room.room_number %></td>
+            <td><%= number_to_currency(booking.room.price) %></td>
+            <td><%= booking.created_at.strftime('%Y %b %d') %></td>
+            <td><%= action_for(booking) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

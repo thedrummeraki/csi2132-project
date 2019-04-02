@@ -3,7 +3,7 @@ module Employees
     before_action :authenticate_employee!
 
     def index
-      @bookings = current_employee.bookings
+      @bookings = Booking.all
     end
 
     # An employee has requested to covert a booking into a renting
