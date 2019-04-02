@@ -16,18 +16,24 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to 'My account', edit_customer_registration_path, class: 'nav-link' %> 
+          <%= link_to 'My account', edit_customer_registration_path, class: 'nav-link' %>
         </li>
       <% elsif logged_in? as: :employee %>
         <li class="nav-item">
-          <a class="nav-link" href="/">Bookings & rents</a>
+          <%= link_to("Bookings", employees_bookings_path, class: 'nav-link') %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/">Hotels & rooms</a>
+          <%= link_to("Rents", employees_rentings_path, class: 'nav-link') %>
+        </li>
+        <li class="nav-item">
+          <a class="nav"></a>
         </li>
         <% if current_employee.is_manager? %>
           <li class="nav-item">
-            <a class="nav-link" href="/">Employees</a>
+            <%= link_to("Manage Employees", employees_employees_path, class: 'nav-link') %>
+          </li>
+          <li class="nav-item">
+            <%= link_to("Manage Chains", employees_hotel_chains_path, class: 'nav-link') %>
           </li>
         <% end %>
       <% end %>
