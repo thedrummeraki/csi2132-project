@@ -3,14 +3,15 @@ module Employees
     before_action :authenticate_employee!
 
     def index
-      @bookings = Booking.all
+      # select * from bookings order by start_date asc;
+      @bookings = Booking.order('start_date desc')
     end
 
     # An employee has requested to covert a booking into a renting
-    def update
-      @booking = Booking.find(params[:id])
+    def check_in
+      @booking = Booking.find(params[:booking_id])
       if @booking.can_check_in? && (@rent = @booking.check_in!)
-        redirect_to rent_path(@rent)
+        redirect_to employees_rentings_path, notice: "#{@booking.customer.full_name} was successfully checked in!"
       else
         redirect_to employees_bookings_path, alert: @booking.string_errors
       end

@@ -23,8 +23,12 @@ Rails.application.routes.draw do
     get :home
 
     # All bookings for employees
-    resources :bookings, only: [:index, :update, :destroy]
+    resources :bookings, only: [:index, :destroy] do
+      get :check_in
+    end
     resources :rentings
+    resources :hotel_chains
+    resources :employees
   end
 
   resources :hotels
