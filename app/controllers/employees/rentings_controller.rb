@@ -27,6 +27,10 @@ module Employees
       end
     end
 
+    def check_out
+      @renting = Renting(params[:id])
+    end
+
     private
 
     def renting_params
