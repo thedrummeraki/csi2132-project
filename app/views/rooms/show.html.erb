@@ -20,15 +20,12 @@
     <div class="card-body">
       <div class="card-title">
         <div class="info-row">
-          <div class="justify-content-between w-100 d-flex">
-            <h3>Summary</h3>
-            <div>
-              <h4 style="display: inline; color: #49796B;">
-                <span class="text-muted">Rate: </span>
-                <strong><%= number_to_currency(@room.price) %></strong>
-              </h4>
-              <small class="text-muted">per night</small>
-            </div>
+          <div class="text-right">
+            <h4 style="display: inline; color: #49796B;">
+              <span class="text-muted">Rate: </span>
+              <strong><%= number_to_currency(@room.price) %></strong>
+            </h4>
+            <small class="text-muted">per night</small>
           </div>
         </div>
         <div class="info-row">
@@ -59,7 +56,61 @@
             </div>
           </div>
         </div>
+
+
       </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <% if logged_in?(as: :customer) %>
+        <div class="justify-content-between w-100 d-flex">
+          <h4>Booking details</h4>
+        </div>
+        <p>Your name: <%= current_customer.full_name %></p>
+        <p>Your email address: <%= mail_to(current_customer.email) %></p>
+        <%= form_for(@booking, url: customers_bookings_path) do |f| %>
+          <input type="hidden" id="room_number" name="booking[room_number]" value="<%= @room.room_number %>" />
+          <input type="hidden" id="hotel_id" name="booking[hotel_id]" value="<%= @room.hotel_id %>" />
+
+          <div style="margin: 10px auto; max-width: 700px; width: 60%;">
+            <div class="form-field">
+              <h4>When would you like this room?</h4>
+              <div class="input-group input-daterange">
+                <%= f.text_field(:start_date, 'data-provide': 'datepicker', placeholder: 'You will stay from...', class: 'form-control') %>
+                <%= f.text_field(:end_date, 'data-provide': 'datepicker', placeholder: 'Until...', class: 'form-control') %>
+              </div>
+            </div>
+
+            <div class="form-field" style="margin: 20px 0;">
+              <h5>Please enter your payment information below:</h5>
+              <div class="row">
+                <div class="col-md-8">
+                  <input name="payment[cc_number]" placeholder="Your credit card number" class="form-control"/>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <input type="text" name="payment[ex_date_year]" placeholder="YY" class="form-control">
+                    <input type="text" name="payment[ex_date_month]" placeholder="MM" class="form-control">
+                    <input type="text" name="payment[ex_date_cvc]" placeholder="CVC" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <small>We only accept credit card payments. The room will be booked once the payment has been received.</small>
+            </div>
+            <small class="text-muted">
+              By clicking the button below, you agree that the information input is correct.<br/>
+              You also agree to our <%= link_to('Terms of Privacy Policy', 'https://www.akinyele.ca/privacy-policy', target: '_blank') %>.
+            </small>
+            <%= f.submit 'Agree & book', class: 'btn btn-block btn-info' %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="text-center">
+          <h5>Please sign in <%= link_to 'here', new_customer_session_path %> to start managing your bookings!</h5>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -73,3 +124,13 @@
     <%= render partial: 'shared/rooms_row', locals: {rooms: @other_rooms, cols: 3} %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.input-daterange').datepicker({
+      todayBtn: "linked",
+      format: "dd/mm/yyyy",
+      startDate: new Date().toDateString()
+    });
+  });
+</script>

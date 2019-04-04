@@ -4,7 +4,7 @@ module Customers
     before_action :authenticate_customer!
 
     def index
-      @bookings = current_customer.bookings
+      @bookings = current_customer.bookings.order('start_date desc')
     end
 
     def show

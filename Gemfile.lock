@@ -59,6 +59,8 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
+    bootstrap-datepicker-rails (1.8.0.1)
+      railties (>= 3.0)
     builder (3.2.3)
     byebug (11.0.0)
     capture_migration_sql (1.0.2)
@@ -244,6 +246,7 @@ DEPENDENCIES
   autocomplete_rails
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
+  bootstrap-datepicker-rails
   byebug
   capture_migration_sql
   capybara (>= 2.15)
@@ -274,4 +277,4 @@ RUBY VERSION
    ruby 2.6.1p33
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

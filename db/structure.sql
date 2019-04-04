@@ -9,6 +9,7 @@ drop table if exists employees cascade;
 drop table if exists bookings cascade;
 drop table if exists hotels cascade;
 drop table if exists rooms cascade;
+drop table if exists rentings cascade;
 drop table if exists amenities cascade;
 
 -- Create all tables, with the least dependant table first
