@@ -87,7 +87,7 @@
               <h5>Please enter your payment information below:</h5>
               <div class="row">
                 <div class="col-md-8">
-                  <input name="payment[cc_number]" placeholder="Your credit card number" class="form-control"/>
+                  <input name="payment[cc_number]" placeholder="Your credit card number" class="input-cc form-control"/>
                 </div>
                 <div class="col-md-4">
                   <div class="input-group">
@@ -100,8 +100,7 @@
               <small>We only accept credit card payments. The room will be booked once the payment has been received.</small>
             </div>
             <small class="text-muted">
-              By clicking the button below, you agree that the information input is correct.<br/>
-              You also agree to our <%= link_to('Terms of Privacy Policy', 'https://www.akinyele.ca/privacy-policy', target: '_blank') %>.
+              You agree that the information input is correct. You also agree to our <%= link_to('Terms of Privacy Policy', 'https://www.akinyele.ca/privacy-policy', target: '_blank') %>.
             </small>
             <%= f.submit 'Agree & book', class: 'btn btn-block btn-info' %>
           </div>
@@ -114,12 +113,12 @@
     </div>
   </div>
 
-  <div style="padding: 30px">
+  <div style="padding: 40px 30px">
     <h2>Also from <%= @room.hotel.name %>...</h2>
     <%= render partial: 'shared/rooms_row', locals: {rooms: @similar_rooms, cols: 3} %>
   </div>
 
-  <div style="padding: 30px">
+  <div style="padding: 40px 30px">
     <h2>View also...</h2>
     <%= render partial: 'shared/rooms_row', locals: {rooms: @other_rooms, cols: 3} %>
   </div>
@@ -131,6 +130,14 @@
       todayBtn: "linked",
       format: "dd/mm/yyyy",
       startDate: new Date().toDateString()
+    });
+
+    var cleave = new Cleave('.input-cc', {
+      creditCard: true,
+      onCreditCardTypeChanged: function (type) {
+        // update UI ...
+        console.log(type);
+      }
     });
   });
 </script>
