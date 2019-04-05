@@ -7,6 +7,10 @@ class Hotel < ApplicationRecord
     hotel_chain.nil? ? nil : hotel_chain.name
   end
 
+  def self.list_hotels
+    all.to_a.collect{|hotel| ["Hotel-#{hotel.id} - #{hotel.address.pretty} ", hotel.id]}
+  end
+
   def image_url
     hotel_chain.nil? ? nil : hotel_chain.image_url
   end

@@ -7,23 +7,22 @@ module Employees
     end
 
     def new
-      args = {}
-      if params[:booking_id].present? && (@booking = Booking.find_by(id: params[:booking_id]))
-        args[:employee_sin] = @booking.employee_sin
-        args[:customer_sin] = @booking.customer_sin
-        args[:start_date] = @booking.start_date
-        args[:end_date] = @booking.end_date
-        args[:room_number] = @booking.room_number
-        args[:hotel_id] = @booking.hotel_id
-      end
-      @renting = Renting.new(**args)
+      @booking = Booking.new
     end
 
     def create
-      if (@renting = Renting.create(renting_params))
-        redirect_to employees_rentings_path, notice: "The customer '#{@renting.customer.full_name}' has been checked in."
+      @booking = Booking.new booking_params
+      @booking.employee_sin = current_employee.sin
+      @booking.status = :started
+      puts booking_params
+      if @booking.save
+        if @booking.can_check_in? && check_in!
+          redirect_to employees_rentings_path, notice: "The customer '#{@renting.customer.full_name}' has been checked in."
+        else
+          redirect_to new_employees_renting_path(@renting), alert: @renting.string_errors
+        end
       else
-        redirect_to new_employees_renting_path(@renting), alert: @renting.string_errors
+        redirect_to new_employees_renting_path, alert: @booking.string_errors
       end
     end
 
@@ -31,11 +30,9 @@ module Employees
       @renting = Renting(params[:id])
     end
 
-    private
 
-    def renting_params
-      params.require(:renting).params(
-        :employee_sin,
+    def booking_params
+      params.require(:booking).permit(
         :customer_sin,
         :start_date,
         :end_date,
@@ -43,5 +40,6 @@ module Employees
         :hotel_id
       )
     end
+
   end
 end

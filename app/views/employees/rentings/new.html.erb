@@ -1,0 +1,48 @@
+<div class="container" style="margin: 0 auto;"">
+  <h2>Please fill customer rental form</h2>
+
+  <p class="text-muted">
+  This will automatically enter a customer's rental in the sysmte
+  without a prior booking
+  </p>
+
+  <%= form_for(@booking, url: employees_rentings_path) do |f| %>
+
+    <br />
+    <h5>Please enter the Customer SIN</h5>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label class="sr-only" for="customer_sin">Sin</label>
+        <%= f.text_field(:customer_sin, placeholder: '123456789', class: 'form-control') %>
+      </div>
+    </div>
+
+    <br />
+    <h5>Please select the hotel</h5>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label class="sr-only" for="hotel">Hotel</label>
+        <%= f.select 'hotel_id', Hotel.list_hotels, {include_blank: "- Select a hotel -"}, {class: 'custom-select'} %>
+      </div>
+    </div>
+
+    <br />
+    <h5>Please select the room number</h5>
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label class="sr-only" for="employee_sin">Sin</label>
+        <%= f.text_field(:room_number, placeholder: 'Select a room to book', class: 'form-control') %>
+      </div>
+    </div>
+
+    <br />
+    <h5>When would you like this room?</h5>
+    <div class="input-group input-daterange">
+      <%= f.text_field(:start_date, 'data-provide': 'datepicker', placeholder: 'You will stay from...', class: 'form-control') %>
+      <%= f.text_field(:end_date, 'data-provide': 'datepicker', placeholder: 'Until...', class: 'form-control') %>
+    </div>
+    <div class="text-center" style="margin-top: 30px;">
+      <button role="submit" class="btn btn-primary btn-lg">Submit rental form</button>
+    </div>
+  <% end %>
+</div>

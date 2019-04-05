@@ -2,7 +2,7 @@ class Address < ApplicationRecord
   self.primary_keys = :street_number, :street_name, :postal_code
 
   def area
-    area = [city]
+    area = [postal_code, city]
     area << province_state unless province_state.nil?
     area << country
     area.join(', ')
