@@ -11,7 +11,7 @@ module Employees
     end
 
     def create
-      @booking = Booking.new booking_params
+      @booking = Booking.new(booking_params[:booking])
       @booking.employee_sin = current_employee.sin
       @booking.status = :started
       puts booking_params

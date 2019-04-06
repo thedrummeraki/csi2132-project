@@ -1,4 +1,4 @@
-<div class="container" style="margin: 0 auto;"">
+<div class="container" style="margin: 0 auto;">
   <h2>Please fill customer rental form</h2>
 
   <p class="text-muted">
@@ -46,3 +46,13 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.input-daterange').datepicker({
+      todayBtn: "linked",
+      format: "dd/mm/yyyy",
+      startDate: new Date().toDateString()
+    });
+  });
+</script>

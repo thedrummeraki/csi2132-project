@@ -10,7 +10,7 @@ module Employees
     # An employee has requested to covert a booking into a renting
     def check_in
       @booking = Booking.find(params[:booking_id])
-      if @booking.can_check_in? && (@rent = @booking.check_in!)
+      if @booking.can_check_in? && @booking.check_in!
         redirect_to employees_rentings_path, notice: "#{@booking.customer.full_name} was successfully checked in!"
       else
         redirect_to employees_bookings_path, alert: @booking.string_errors

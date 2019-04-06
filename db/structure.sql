@@ -212,3 +212,17 @@ ALTER TABLE bookings ADD
   CONSTRAINT fk_room_identification
   FOREIGN KEY (room_number, hotel_id)
   REFERENCES rooms(room_number, hotel_id);
+
+CREATE OR REPLACE FUNCTION make_renting_on_booking_check_in()
+  returns trigger AS
+  $BODY$
+  BEGIN
+  IF new.status = 'complete' AND new.status <> old.status AND NOT EXISTS(SELECT 1 FROM rentings WHERE booking_id = old.id) THEN
+  INSERT INTO rentings(status, employee_sin, start_date, end_date, customer_sin, room_number, hotel_id, booking_id, has_booked, created_at, updated_at)
+  VALUES ('renting', old.employee_sin, old.start_date, old.end_date, old.customer_sin, old.room_number, old.hotel_id, new.id, 'f', now(), now());
+  END IF;
+  RETURN NEW;
+  END;
+  $BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
