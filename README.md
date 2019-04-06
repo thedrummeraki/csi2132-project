@@ -28,7 +28,7 @@ project `csi2132-e-hotels` will be necessary to project's database. See below fo
 
 ### How do I install the requirements?
 It is preferable to run a Unix-based machine. Please understand that setting up this project on a Windows
-will require [Windwos Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+will require [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
 #### Install RMV (skip this step if you have RVM installed a.k.a. if `rvm` prints a help message):
 ```
