@@ -7,7 +7,7 @@ class Employee < ApplicationRecord
   before_save :ensure_address!
   before_save :ensure_manager!
 
-  belongs_to :address, foreign_key: [:street_number, :street_name, :postal_code], optional: true
+  belongs_to :address, foreign_key: [:street_number, :street_name, :postal_code], optional: true, dependent: :destroy
   belongs_to :hotel
 
   has_many :bookings, foreign_key: :employee_sin
