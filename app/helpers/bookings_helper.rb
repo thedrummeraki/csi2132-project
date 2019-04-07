@@ -22,17 +22,20 @@ module BookingsHelper
 
   private
 
-  def action_as_employee_for(booking)
-    case booking.status
+  def action_as_employee_for(booking_or_renting)
+    case booking_or_renting.status
     when 'started'
       content_tag :div, class: 'btn-group w-100' do
-        link_to('Check in', employees_booking_check_in_path(booking), class: 'btn btn-sm btn-success') + \
-        link_to('Cancel', customers_booking_path(booking), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?' })
+        link_to('Check in', employees_booking_check_in_path(booking_or_renting), class: 'btn btn-sm btn-success') + \
+        link_to('Cancel', customers_booking_path(booking_or_renting), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?' })
       end
-    when 'complete', 'cancelled'
+    when 'complete', 'cancelled', 'renting'
       content_tag :div, class: 'btn-group w-100' do
-        link_to('Check out', '#', class: 'btn btn-sm btn-warning') + \
-        link_to('Archive', '#', class: 'btn btn-sm btn-outline-secondary')
+        link_to('Check out', employees_renting_check_out_path(booking_or_renting), class: 'btn btn-sm btn-warning', method: :delete)
+      end
+    when 'checked-out'
+      content_tag :div, class: 'btn-group w-100' do
+        link_to('Archive', employees_renting_archive_path(booking_or_renting), class: 'btn btn-sm btn-outline-secondary', method: :delete )
       end
     else
       content_tag :div, class: '' do
@@ -46,7 +49,7 @@ module BookingsHelper
     when 'started'
       link_to 'Cancel', customers_booking_path(booking), class: 'btn btn-sm btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' }
     when 'complete', 'cancelled'
-      link_to 'Book again', '#', class: 'btn btn-sm btn-info'
+      link_to 'Archive', customers_booking_archive_path(booking), class: 'btn btn-sm btn-outline-secondary', method: :delete
     else
       content_tag :div, class: '' do
         'ー'

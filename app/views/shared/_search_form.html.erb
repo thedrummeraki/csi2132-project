@@ -4,8 +4,14 @@
     <p class="lead text-muted">What type of room would you like?</p>
     <%= form_tag '/search', method: 'get' do %>
       <div class="form-row">
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-7">
           <%= text_field_tag :search, @area, name: 'search[area]', data: { autocomplete: search_autocomplete_address_area_path }, class: 'form-control', placeholder: 'Where would you like to go?' %>
+        </div>
+        <div class="form-group col-md-5">
+          <div class="input-group input-daterange">
+            <%= text_field_tag(:search, :start_date, 'data-provide': 'datepicker', name: 'search[start_date]', placeholder: 'You will stay from...', class: 'form-control', value: @start_date) %>
+          <%= text_field_tag(:search, :end_date, 'data-provide': 'datepicker', name: 'search[end_date]', placeholder: 'Until...', class: 'form-control', value: @end_date) %>
+          </div>
         </div>
       </div>
       <div class="form-row text-left">
@@ -32,3 +38,13 @@
 
   </div>
 </section>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.input-daterange').datepicker({
+      todayBtn: "linked",
+      format: "dd/mm/yyyy",
+      startDate: new Date().toDateString()
+    });
+  });
+</script>

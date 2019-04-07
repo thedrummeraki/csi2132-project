@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     get :settings
 
     # All bookings for the current customer
-    resources :bookings, except: [:update]
+    resources :bookings, except: [:update] do
+      delete :archive
+    end
     resources :rentings, only: [:index]
   end
 
@@ -26,7 +28,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :destroy] do
       get :check_in
     end
-    resources :rentings
+    resources :rentings do
+      delete :check_out
+      delete :archive
+    end
     resources :hotel_chains
     resources :hotels
     resources :rooms

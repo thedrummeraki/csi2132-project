@@ -3,7 +3,7 @@ module Employees
     before_action :authenticate_employee!
 
     def index
-      @rentings = Renting.all
+      @rentings = Renting.all.order(:id)
     end
 
     def new
@@ -26,9 +26,22 @@ module Employees
     end
 
     def check_out
-      @renting = Renting(params[:id])
+      @renting = Renting.find(params[:renting_id])
+      if @renting.check_out!
+        redirect_to employees_rentings_path, notice: "The customer '#{@renting.customer.full_name}' has successfully been checked out."
+      else
+        redirect_to employees_rentings_path, alert: @renting.string_errors
+      end
     end
 
+    def archive
+      @renting = Renting.find(params[:renting_id])
+      if @renting.update(status: 'archived')
+        redirect_to employees_rentings_path, notice: "Rental successfully archived."
+      else
+        redirect_to employees_rentings_path, alert: @renting.string_errors
+      end
+    end
 
     def booking_params
       params.require(:booking).permit(

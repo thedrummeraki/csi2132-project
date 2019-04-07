@@ -36,6 +36,8 @@ module ApplicationHelper
       color = 'success'
     when 'cancelled', 'manager', 'no'
       color = 'danger'
+    when 'checked-out'
+      color = 'warning'
     else
       color = 'secondary'
     end

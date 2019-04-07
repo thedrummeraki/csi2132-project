@@ -10,6 +10,9 @@ class SearchController < ApplicationController
     @size = search_params[:size]
     @price = search_params[:price]
 
+    @start_date = search_params[:start_date]
+    @end_date = search_params[:end_date]
+
     search = Search.new
     search.analyze!(search_params)
     @rooms_parts = search.rooms.each_slice(3).to_a
@@ -24,7 +27,9 @@ class SearchController < ApplicationController
       :hotel_chain,
       :category,
       :size,
-      :price
+      :price,
+      :start_date,
+      :end_date
     )
   end
 

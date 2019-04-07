@@ -39,6 +39,15 @@ module Customers
       redirect_to customers_bookings_path, **option
     end
 
+    def archive
+      @booking = Booking.find(params[:booking_id])
+      if @booking.update(status: 'archived')
+        redirect_to customers_bookings_path, notice: "Booking successfully archived."
+      else
+        redirect_to customers_bookings_path, alert: @booking.string_errors
+      end
+    end
+
     private
 
     def update_booking_params
