@@ -12,7 +12,7 @@ drop table if exists rooms cascade;
 drop table if exists rentings cascade;
 drop table if exists amenities cascade;
 
--- Create all tables, with the least dependant table first
+-- Create all tables, with the least dependent table first
 -- OK
 CREATE TABLE addresses(
     street_number int NOT NULL,

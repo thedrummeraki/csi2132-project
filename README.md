@@ -12,8 +12,7 @@ This is a course project. The goal is to develop a hotels management system in o
 The project is hosted at [https://csi2132-e-hotels.herokuapp.com](https://csi2132-e-hotels.herokuapp.com).
 
 ### Where is the SQL?
-The database structure can be found at [csi2132-project/db/structure.sql]
-(https://github.com/thedrummeraki/csi2132-project/tree/master/db/structure.sql).
+The database structure can be found at [csi2132-project/db/structure.sql](https://github.com/thedrummeraki/csi2132-project/tree/master/db/structure.sql).
 
 ### Where is the Database?
 The database uses a [Heroku database](https://devcenter.heroku.com/articles/heroku-postgresql)
@@ -74,27 +73,15 @@ bundle
 
 Then, please setup the following environment variables by creating a `.env` file at the project's root folder.
 ```
-E_HOTELS_DB_USER=<your PostgreSQL DB username (default: user)>
-E_HOTELS_DB_PASSWORD=<your PostgreSQL DB password (default: password)>
-E_HOTELS_DB_HOST=<your PostgreSQL DB host (default: localhost)>
-E_HOTELS_DB_PORT=<your PostgreSQL DB port (default: 5432)>
+DATABASE_URL=<postgresql_url>
 ```
+
+An example of `postgresql_url` is: `postgresql://user:password@host:5432/dbname`
 
 Then finally:
 ```
-rails db:setup
+. .env
+psql $DATABASE_URL -f db/structure.sql
+rails db:seed
 rails s
 ```
-
-### I want to access the (production) database
-> Please note that you will not be able to access the DBMS if you have not been added to the Heroku project.
-That's very simple. All you need to do is:
-```
-heroku psql -a csi2132-e-hotels
-```
-This will open a PostgreSQL command interface in which you will be able to run basic PostgreSQL commands.
-
-> Please note that connecting to a PostgreSQL database on the University of Ottawa will not work. The connection will simply timeout.
-
-Since Heroku uses PostgreSQL hosted on Amazon AWS, you can use PG Admin. Please view this
-[link](https://stackoverflow.com/questions/11769860/connect-to-a-heroku-database-with-pgadmin) for additional help.
