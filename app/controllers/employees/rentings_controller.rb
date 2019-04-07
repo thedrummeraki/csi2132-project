@@ -11,13 +11,12 @@ module Employees
     end
 
     def create
-      @booking = Booking.new(booking_params[:booking])
+      @booking = Booking.new(booking_params)
       @booking.employee_sin = current_employee.sin
       @booking.status = :started
-      puts booking_params
       if @booking.save
-        if @booking.can_check_in? && check_in!
-          redirect_to employees_rentings_path, notice: "The customer '#{@renting.customer.full_name}' has been checked in."
+        if @booking.can_check_in? && @booking.check_in!
+          redirect_to employees_rentings_path, notice: "The customer '#{@booking.customer.full_name}' has been checked in."
         else
           redirect_to new_employees_renting_path(@renting), alert: @renting.string_errors
         end
