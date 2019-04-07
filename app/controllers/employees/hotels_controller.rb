@@ -38,7 +38,7 @@ module Employees
         :province_state,
         :country,
         :manager_sin
-      )
+      ).delete_if {|key, value| value.empty? }
     end
 
   end
