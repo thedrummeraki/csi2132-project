@@ -8,6 +8,7 @@ module BookingsHelper
   end
 
   def expired_status_for(booking)
+    return unless booking.respond_to?(:expired?)
     if booking.expired?(range: :all)
       content_tag :i, class: 'material-icons text-danger' do
         'warning'

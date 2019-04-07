@@ -1,0 +1,129 @@
+
+<div class="container" style="padding: 40px;">
+  <div class="hf-section">
+    <h3>Edit hotel chain information</h3>
+    <div class="card" style="margin-bottom: 20px;">
+      <div class="card-body">
+        <div class="d-flex justify-content-between w-100">
+          <span>Hotel Chain ID: <strong class="text-muted"><code><%= @hotel_chain.id %></code></strong></span>
+          <span>Created on: <strong class="text-muted"><%= @hotel_chain.created_at.strftime("%Y %B %d at %H:%m:%S") %></strong></span>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <%= form_for(@hotel_chain, as: :hotel_chain, url: employees_hotel_chain_path(@hotel_chain), html: { method: :patch }) do |f| %>
+      <div class="row">
+        <div class="col-8">
+          <p><strong>Basic settings</strong></p>
+          <div class="form-group">
+            <%= f.label :name, 'Hotel Chain name' %>
+            <%= f.text_field :name, class: 'form-control', placeholder: 'How should we call this chain?', autocomplete: 'off' %>
+            <small class="form-text text-muted">This name will be associated with each hotel under this chain.</small>
+          </div>
+
+          <p><strong>Headquaters address</strong></p>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <%= f.label :street_number, class: 'sr-only' %>
+              <%= f.number_field :street_number, class: 'form-control', placeholder: 'Street number' %>
+            </div>
+            <div class="form-group col-md-8">
+              <%= f.label :street_name, class: 'sr-only' %>
+              <%= f.text_field :street_name, class: 'form-control', placeholder: 'Street name' %>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <%= f.label :city, class: 'sr-only' %>
+              <%= f.text_field :city, class: 'form-control', placeholder: 'City' %>
+            </div>
+            <div class="form-group col-md-3">
+              <%= f.label :province_state, class: 'sr-only' %>
+              <%= f.text_field :province_state, class: 'form-control', placeholder: 'Province' %>
+            </div>
+            <div class="form-group col-md-3">
+              <%= f.label :postal_code, class: 'sr-only' %>
+              <%= f.text_field :postal_code, class: 'form-control', placeholder: 'Postal Code' %>
+            </div>
+            <div class="form-group col-md-3">
+              <%= f.label :country, class: 'sr-only' %>
+              <%= f.text_field :country, class: 'form-control', placeholder: 'Country' %>
+            </div>
+          </div>
+
+          <div class="row" style="padding-top: 30px;">
+            <div class="col-md-4">
+              <%= link_to('Back to hotel chains', employees_hotel_chains_path, class: 'btn btn-block btn-secondary btn-sm') %>
+            </div>
+            <div class="col-md-8">
+              <%= f.submit 'Update hotel chain information', class: 'btn btn-block btn-sm btn-info' %>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-4 d-inline-block">
+        <strong>Profile picture</strong>
+        <div class="edit-thumb thumbnail">
+          <p class="text-muted">Current profile picture</p>
+          <%= image_tag(@hotel_chain.image_url, alt: @hotel_chain.name) %>
+          <%# avatar_tag(size: 200) %>
+          <%# f.file_field :avatar %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<div class="container-fluid" style="padding: 40px;">
+  <div class="text-center">
+    <h3>Hotels list (<%= @hotels.size %>)</h3>
+  </div>
+
+  <% if @hotels.empty? %>
+    <div class="text-center">
+      <strong class="text-muted">
+        It looks like no hotel have been made yet. <br />
+      </strong>
+    </div>
+  <% else %>
+    <table class="table">
+      <thead class="thead-light">
+        <th scope="col">ID #</th>
+        <th scope="col">Phone number</th>
+        <th scope="col">Contact email</th>
+        <th scope="col">Full address</th>
+        <th scope="col">Manager</th>
+        <th scope="col">Created on</th>
+        <th scope="col">Updated on</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <% @hotels.each do |hotel| %>
+          <tr>
+            <th scope="row">
+              <%= hotel.id %>
+            </th>
+            <td><%= hotel.phone_number %></td>
+            <td><%= mail_to(hotel.email) %></td>
+            <td><%= hotel.address.pretty %></td>
+            <td>
+              <% if hotel.manager %>
+                <%= link_to(employees_employee_path(hotel.manager, from: 'hotel')) do %>
+                  <%= image_tag(hotel.manager.avatar_url(size: 25), class: 'tiny-avatar') %>
+                  <span><%= hotel.manager.full_name %></span>
+                <% end %>
+              <% end %>
+            </td>
+            <td><%= hotel.created_at.strftime('%Y %b %d') %></td>
+            <td><%= hotel.updated_at.strftime('%Y %b %d') %></td>
+            <td><%= link_to('Details', employees_hotel_path(hotel), class: 'btn btn-sm btn-info') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

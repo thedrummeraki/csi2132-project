@@ -1,0 +1,55 @@
+
+<div class="container text-center" style="padding: 40px;">
+  <h3>Customer rentals</h3>
+  <p class="text-muted">
+    You will see a list of all of rentals for all customers below.
+  </p>
+</div>
+
+<div class="container-fluid">
+  <% if @rentings.empty? %>
+    <div class="text-center">
+      <strong class="text-muted">
+        It looks like no rentings have been made yet. <br />
+      </strong>
+    </div>
+  <% else %>
+    <table class="table">
+      <thead class="thead-light">
+        <th scope="col">Ref #</th>
+        <th scope="col">Status</th>
+        <th scope="col">Customer</th>
+        <th scope="col">From (date)</th>
+        <th scope="col">Until (date)</th>
+        <th scope="col">Hotel</th>
+        <th scope="col">Area</th>
+        <th scope="col">Room #</th>
+        <th scope="col">Rate</th>
+        <th scope="col">Made on</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <% @rentings.each do |renting| %>
+          <tr>
+            <th scope="row">
+              <%= renting.id %>
+            </th>
+            <td><%= badge_for(renting) %></td>
+            <td>
+              <%= image_tag(renting.customer.avatar_url(size: 25), class: 'tiny-avatar') %>
+              <span><%= renting.customer.full_name %></span>
+            </td>
+            <td><%= renting.start_date.strftime('%Y %b %d') %></td>
+            <td><%= renting.end_date.strftime('%Y %b %d') %></td>
+            <td><%= renting.room.hotel.name %></td>
+            <td><%= renting.room.hotel.address.area %></td>
+            <td><%= renting.room.room_number %></td>
+            <td><%= number_to_currency(renting.room.price) %></td>
+            <td><%= renting.created_at.strftime('%Y %b %d') %></td>
+            <td><%= action_for(renting) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

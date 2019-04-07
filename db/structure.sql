@@ -214,15 +214,59 @@ ALTER TABLE bookings ADD
   REFERENCES rooms(room_number, hotel_id);
 
 CREATE OR REPLACE FUNCTION make_renting_on_booking_check_in()
-  returns trigger AS
+  RETURNS TRIGGER AS
   $BODY$
   BEGIN
-  IF new.status = 'complete' AND new.status <> old.status AND NOT EXISTS(SELECT 1 FROM rentings WHERE booking_id = old.id) THEN
+  IF new.status = 'complete' AND status <> old.status AND NOT EXISTS(SELECT 1 FROM rentings WHERE booking_id = new.id) THEN
   INSERT INTO rentings(status, employee_sin, start_date, end_date, customer_sin, room_number, hotel_id, booking_id, has_booked, created_at, updated_at)
   VALUES ('renting', old.employee_sin, old.start_date, old.end_date, old.customer_sin, old.room_number, old.hotel_id, new.id, 'f', now(), now());
   END IF;
-  RETURN NEW;
+  RETURN new;
   END;
   $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
+
+CREATE OR REPLACE FUNCTION ensure_address_exists()
+  RETURNS TRIGGER AS
+  $BODY$
+  BEGIN
+  IF NOT EXISTS(SELECT 1 FROM addresses WHERE street_name = new.street_name AND street_number = new.street_number AND postal_code = new.postal_code) THEN
+  INSERT INTO addresses(street_number, street_name, postal_code, city, province_state, country, created_at, updated_at)
+  VALUES (new.street_number, new.street_name, new.postal_code, new.city, new.province_state, new.country, now(), now());
+  END IF;
+  RETURN new;
+  END;
+  $BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+
+CREATE TRIGGER check_in_booking
+  AFTER UPDATE
+  ON bookings
+  FOR EACH ROW
+  EXECUTE PROCEDURE make_renting_on_booking_check_in();
+
+CREATE TRIGGER check_employee_addresses
+  BEFORE UPDATE
+  ON employees
+  FOR EACH ROW
+  EXECUTE PROCEDURE ensure_address_exists();
+
+CREATE TRIGGER check_customer_addresses
+  BEFORE UPDATE
+  ON customers
+  FOR EACH ROW
+  EXECUTE PROCEDURE ensure_address_exists();
+
+CREATE TRIGGER check_hotel_chain_addresses
+  BEFORE UPDATE
+  ON hotel_chains
+  FOR EACH ROW
+  EXECUTE PROCEDURE ensure_address_exists();
+
+CREATE TRIGGER check_hotel_addresses
+  BEFORE UPDATE
+  ON hotels
+  FOR EACH ROW
+  EXECUTE PROCEDURE ensure_address_exists();

@@ -1,0 +1,46 @@
+
+<div class="container text-center" style="padding: 40px;">
+  <h3>Manage hotel chains</h3>
+  <p class="text-muted">
+    You will see a list of all of hotel chains below.
+  </p>
+</div>
+
+<div class="container-fluid">
+  <% if @hotel_chains.empty? %>
+    <div class="text-center">
+      <strong class="text-muted">
+        It looks like no hotel chains have been made yet. <br />
+      </strong>
+    </div>
+  <% else %>
+    <table class="table">
+      <thead class="thead-light">
+        <th scope="col">ID #</th>
+        <th scope="col">Name</th>
+        <th scope="col">Contact email</th>
+        <th scope="col">Headquaters</th>
+        <th scope="col">Hotels count</th>
+        <th scope="col">Created on</th>
+        <th scope="col">Updated on</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <% @hotel_chains.each do |hotel_chain| %>
+          <tr>
+            <th scope="row">
+              <%= hotel_chain.id %>
+            </th>
+            <td><%= hotel_chain.name %></td>
+            <td><%= mail_to(hotel_chain.contact_email) %></td>
+            <td><%= hotel_chain.address.pretty %></td>
+            <td><%= hotel_chain.hotels.count %></td>
+            <td><%= hotel_chain.created_at.strftime('%Y %b %d') %></td>
+            <td><%= hotel_chain.updated_at.strftime('%Y %b %d') %></td>
+            <td><%= link_to('Details', employees_hotel_chain_path(hotel_chain), class: 'btn btn-sm btn-info') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

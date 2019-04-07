@@ -1,31 +1,41 @@
+
 <div class="container" style="padding: 40px;">
   <div class="hf-section">
-    <h3>Account settings</h3>
+    <h3>Edit employee account information</h3>
     <div class="card" style="margin-bottom: 20px;">
       <div class="card-body">
         <div class="d-flex justify-content-between w-100">
-          <span>Your SIN: <strong class="text-muted"><code><%= current_customer.sin %></code></strong></span>
-          <span>Registration date/time: <strong class="text-muted"><%= current_customer.registration_date.strftime("%Y %B %d at %H:%m:%S") %></strong></span>
+          <span>Employee SIN: <strong class="text-muted"><code><%= @employee.sin %></code></strong></span>
+          <span>Created on: <strong class="text-muted"><%= @employee.created_at.strftime("%Y %B %d at %H:%m:%S") %></strong></span>
       </div>
     </div>
   </div>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :post }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(@employee, as: :employee, url: employees_employee_path(@employee), html: { method: :patch }) do |f| %>
       <div class="row">
         <div class="col-8">
           <p><strong>Basic settings</strong></p>
           <div class="form-group">
-            <%= f.label :full_name, 'Your name' %>
-            <%= f.text_field :full_name, class: 'form-control', placeholder: 'How should we call you?', autocomplete: 'off' %>
-            <small class="form-text text-muted">This will be visible to employees when making a reservation</small>
+            <%= f.label :full_name, 'Employee full name' %>
+            <%= f.text_field :full_name, class: 'form-control', placeholder: 'How should we call this employee?', autocomplete: 'off' %>
+            <small class="form-text text-muted">This should be the employee's legal full name</small>
           </div>
 
-          <div class="form-group">
-            <%= f.label :password, 'Change your password' %>
-            <div class="input-group">
-              <%= f.password_field :password, class: 'form-control', placeholder: 'Enter new password' %>
-              <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm new password' %>
+          <p><strong>Hotel information</strong></p>
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label class="sr-only" for="hotel">Hotel</label>
+              <%= f.select 'hotel_id', Hotel.list_hotels, {include_blank: "- Select a hotel -"}, {class: 'custom-select'} %>
+            </div>
+          </div>
+
+          <p><strong>Employee's manager</strong></p>
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label class="sr-only" for="hotel">Manager</label>
+              <%= f.select 'manager_sin', Employee.list_managers, {include_blank: "- Select a manager -"}, {class: 'custom-select'} %>
             </div>
           </div>
 
@@ -61,8 +71,20 @@
             </div>
           </div>
 
-          <div style="padding-top: 30px;">
-            <%= f.submit 'Update my account', class: 'btn btn-block btn-sm btn-info' %>
+          <div class="row" style="padding-top: 30px;">
+            <div class="col-md-4">
+              <% if params[:from] == 'hotel' %>
+                <% text = 'Back to hotel chain' %>
+                <% link = employees_hotel_chain_path(@employee.hotel.hotel_chain) %>
+              <% else %>
+                <% text = 'Back to employees list' %>
+                <% link = employees_employees_path %>
+              <% end %>
+              <%= link_to(text, link, class: 'btn btn-block btn-secondary btn-sm') %>
+            </div>
+            <div class="col-md-8">
+              <%= f.submit 'Update employee information', class: 'btn btn-block btn-sm btn-info' %>
+            </div>
           </div>
       </div>
 
@@ -70,7 +92,7 @@
         <strong>Profile picture</strong>
         <div class="edit-thumb thumbnail">
           <p class="text-muted">Your current profile picture</p>
-          <%= image_tag(current_customer.avatar_url, alt: current_customer.full_name) %>
+          <%= image_tag(@employee.avatar_url, alt: @employee.full_name) %>
           <%# avatar_tag(size: 200) %>
           <%# f.file_field :avatar %>
         </div>

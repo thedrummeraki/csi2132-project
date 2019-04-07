@@ -4,7 +4,10 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :address, foreign_key: [:street_number, :street_name, :postal_code]
+  before_save :ensure_address!
+  before_save :ensure_manager!
+
+  belongs_to :address, foreign_key: [:street_number, :street_name, :postal_code], optional: true
   belongs_to :hotel
 
   has_many :bookings, foreign_key: :employee_sin
@@ -23,5 +26,26 @@ class Employee < ApplicationRecord
   # SELECT 1 AS one FROM "employees" WHERE (manager_sin = #{sin} AND sin != #{sin}) LIMIT 1
   def is_manager?
     !employees.empty?
+  end
+
+  def get_role
+    is_manager? ? 'manager' : 'regular'
+  end
+
+  def avatar_url(size: 300)
+    "https://api.adorable.io/avatars/#{size}/#{sin}.png"
+  end
+
+  def self.list_managers
+    all.to_a.select{|e| e.is_manager?}.collect{|m| [m.full_name, m.sin]}
+  end
+
+  private
+
+  def ensure_manager!
+    if manager.nil?
+      errors.add(:manager, 'must exist.')
+      throw :abort
+    end
   end
 end

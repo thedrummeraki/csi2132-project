@@ -5,19 +5,6 @@ class Booking < ApplicationRecord
   # We will be converting a booking into a renting
   def check_in!
     ensure_can_check_in!
-    """
-    Renting.create(
-      status: :renting,
-      employee_sin: employee_sin,
-      start_date: start_date,
-      end_date: end_date,
-      customer_sin: customer_sin,
-      room_number: room_number,
-      hotel_id: hotel_id,
-      has_booked: true,
-      booking_id: id
-    )
-    """
     self.update(status: :complete)
   end
 

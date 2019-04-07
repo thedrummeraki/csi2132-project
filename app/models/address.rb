@@ -2,7 +2,7 @@ class Address < ApplicationRecord
   self.primary_keys = :street_number, :street_name, :postal_code
 
   def area
-    area = [postal_code, city]
+    area = [city]
     area << province_state unless province_state.nil?
     area << country
     area.join(', ')
@@ -21,6 +21,7 @@ class Address < ApplicationRecord
     # Add them to the buffer, as well as the city, province
     # (if applicable) and the country + postal_code
     pieces << initial_part
+    pieces << [postal_code]
     pieces << area
 
     # Buffer to string by adding commas between each part

@@ -1,0 +1,59 @@
+
+<div class="container text-center" style="padding: 40px;">
+  <h3>Employees list</h3>
+  <p class="text-muted">
+    You will see a list of all of employees currently working. You will be able
+    to edit a employee's information by clicking on their name.
+  </p>
+</div>
+
+<div class="container-fluid">
+  <% if @employees.empty? %>
+    <div class="text-center">
+      <strong class="text-muted">
+        It looks like no employees have registered on the system. <br />
+      </strong>
+    </div>
+  <% else %>
+    <table class="table">
+      <thead class="thead-light">
+        <th scope="col">SIN #</th>
+        <th scope="col">Role</th>
+        <th scope="col">Full name</th>
+        <th scope="col">Works for</th>
+        <th scope="col">Hotel</th>
+        <th scope="col">Location</th>
+        <th scope="col">Email address</th>
+      </thead>
+      <tbody>
+        <% @employees.each do |employee| %>
+          <tr>
+            <th scope="row">
+              <small><code><%= employee.id %></code></small>
+            </th>
+            <td>
+              <%= colour_badge(employee.get_role) %>
+            </td>
+            <td>
+              <%= link_to(employees_employee_path(employee)) do %>
+                <%= image_tag(employee.avatar_url(size: 25), class: 'tiny-avatar') %>
+                <span><%= employee.full_name %></span>
+              <% end %>
+            </td>
+            <td>
+              <% if employee.manager %>
+                <%= link_to(employees_employee_path(employee.manager)) do %>
+                  <%= image_tag(employee.manager.avatar_url(size: 25), class: 'tiny-avatar') %>
+                  <span><%= employee.manager.full_name %></span>
+                <% end %>
+              <% end %>
+            </td>
+            <td><%= employee.hotel.name %></td>
+            <td><%= employee.hotel.address.pretty %></td>
+            <td><%= mail_to(employee.email) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

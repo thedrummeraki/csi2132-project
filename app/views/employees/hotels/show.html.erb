@@ -1,35 +1,31 @@
+
 <div class="container" style="padding: 40px;">
   <div class="hf-section">
-    <h3>Account settings</h3>
+    <h3>Edit hotel information</h3>
     <div class="card" style="margin-bottom: 20px;">
       <div class="card-body">
         <div class="d-flex justify-content-between w-100">
-          <span>Your SIN: <strong class="text-muted"><code><%= current_customer.sin %></code></strong></span>
-          <span>Registration date/time: <strong class="text-muted"><%= current_customer.registration_date.strftime("%Y %B %d at %H:%m:%S") %></strong></span>
+          <span>Hotel ID: <strong class="text-muted"><code><%= @hotel.id %></code></strong></span>
+          <span>Created on: <strong class="text-muted"><%= @hotel.created_at.strftime("%Y %B %d at %H:%m:%S") %></strong></span>
       </div>
     </div>
   </div>
+  </div>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :post }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(@hotel, as: :hotel, url: employees_hotel_path(@hotel), html: { method: :patch }) do |f| %>
       <div class="row">
         <div class="col-8">
-          <p><strong>Basic settings</strong></p>
-          <div class="form-group">
-            <%= f.label :full_name, 'Your name' %>
-            <%= f.text_field :full_name, class: 'form-control', placeholder: 'How should we call you?', autocomplete: 'off' %>
-            <small class="form-text text-muted">This will be visible to employees when making a reservation</small>
-          </div>
 
-          <div class="form-group">
-            <%= f.label :password, 'Change your password' %>
-            <div class="input-group">
-              <%= f.password_field :password, class: 'form-control', placeholder: 'Enter new password' %>
-              <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm new password' %>
+          <p><strong>Manager information</strong></p>
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label class="sr-only" for="hotel">Manager</label>
+              <%= f.select 'manager_sin', Employee.list_managers, {include_blank: "- Select a manager -"}, {class: 'custom-select'} %>
             </div>
           </div>
 
-          <p><strong>Your address</strong></p>
+          <p><strong>Hotel address</strong></p>
 
           <div class="form-row">
             <div class="form-group col-md-4">
@@ -61,16 +57,21 @@
             </div>
           </div>
 
-          <div style="padding-top: 30px;">
-            <%= f.submit 'Update my account', class: 'btn btn-block btn-sm btn-info' %>
+          <div class="row" style="padding-top: 30px;">
+            <div class="col-md-4">
+              <%= link_to('Back to hotel chain', employees_hotel_chain_path(@hotel.hotel_chain), class: 'btn btn-block btn-secondary btn-sm') %>
+            </div>
+            <div class="col-md-8">
+              <%= f.submit 'Update hotel information', class: 'btn btn-block btn-sm btn-info' %>
+            </div>
           </div>
       </div>
 
       <div class="col-4 d-inline-block">
         <strong>Profile picture</strong>
         <div class="edit-thumb thumbnail">
-          <p class="text-muted">Your current profile picture</p>
-          <%= image_tag(current_customer.avatar_url, alt: current_customer.full_name) %>
+          <p class="text-muted">Current profile picture</p>
+          <%= image_tag(@hotel.image_url, alt: @hotel.name) %>
           <%# avatar_tag(size: 200) %>
           <%# f.file_field :avatar %>
         </div>

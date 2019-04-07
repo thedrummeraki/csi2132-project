@@ -20,19 +20,23 @@ module ApplicationHelper
 
   def badge_for(model)
     return unless model.respond_to?(:status)
+    colour_badge(model.status)
+  end
+
+  def colour_badge(value)
     color = nil
-    case model.status
+    case value
     when 'started'
       color = 'info'
-    when 'complete'
+    when 'complete', 'regular'
       color = 'success'
-    when 'cancelled'
+    when 'cancelled', 'manager'
       color = 'danger'
     else
       color = 'secondary'
     end
     content_tag :span, class: "badge badge-#{color}" do
-      model.status
+      value
     end
   end
 

@@ -3,7 +3,7 @@ module Employees
     before_action :authenticate_employee!
 
     def index
-      @rentings = current_employee.rentings
+      @rentings = Renting.all
     end
 
     def new
