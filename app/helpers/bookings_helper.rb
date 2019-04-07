@@ -27,7 +27,7 @@ module BookingsHelper
     when 'started'
       content_tag :div, class: 'btn-group w-100' do
         link_to('Check in', employees_booking_check_in_path(booking_or_renting), class: 'btn btn-sm btn-success') + \
-        link_to('Cancel', customers_booking_path(booking_or_renting), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?' })
+        link_to('Cancel', employees_booking_path(booking_or_renting), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?' })
       end
     when 'complete', 'cancelled', 'renting'
       content_tag :div, class: 'btn-group w-100' do

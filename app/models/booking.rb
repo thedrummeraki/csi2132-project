@@ -12,10 +12,23 @@ class Booking < ApplicationRecord
     status.to_s == 'started'
   end
 
+  def cancelled?
+    status.to_s == 'cancelled'
+  end
+
+  def archived?
+    status.to_s == 'archived'
+  end
+
+  def complete?
+    status.to_s == 'complete'
+  end
+
   # Check if a person has made a booking but not checked in
   # yet (right now)
   def expired?(range: :now)
     return false unless persisted?
+    return false if cancelled? || archived? || complete?
     case range
     when :all
       !!(start_date <= Time.now && end_date <= Time.now)

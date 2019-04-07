@@ -25,6 +25,11 @@
             <%= f.number_field :price, class: 'form-control', placeholder: 'How much per night?', step: '0.01', autocomplete: 'off' %>
           </div>
 
+          <div class="form-group">
+            <%= f.label :capacity, 'Room capacity' %>
+            <%= f.number_field :capacity, class: 'form-control', placeholder: 'How many can we cram in there?', autocomplete: 'off' %>
+          </div>
+
           <p><strong>Hotel information</strong></p>
 
           <div class="form-row">

@@ -19,11 +19,12 @@ module Employees
 
     def destroy
       @booking = Booking.find(params[:id])
-      if @booking.update(status: :archived)
-        redirect_to
+      if @booking.update(status: :cancelled)
+        option = {notice: "This booking was successfully cancelled."}
       else
-        redirect_to employees_booking_path(@booking), alert: @booking.string_errors
+        option = {alert: "Oh no, we were not able to cancel this booking!"}
       end
+      redirect_to employees_bookings_path, **option
     end
   end
 end
