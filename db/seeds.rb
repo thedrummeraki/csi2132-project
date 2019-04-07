@@ -1,4 +1,4 @@
-price: 62.99# This file should contain all the record creation needed to seed the database with its default values.
+# This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
@@ -2047,7 +2047,23 @@ Customer.create([
     full_name: 'Akinyele',
     registration_date: Time.now,
     street_number: 1, street_name: 'University Private', postal_code: 'K1N 6H5', city: 'Ottawa', province_state: 'ON', country: 'Canada',
-    email: 'akinyele@boss.co',
-    password: 'toronto'
+    email: 'password1@boss.co',
+    password: 'password'
+  },
+  {
+    sin: '123-456-781',
+    full_name: 'Akinyele',
+    registration_date: Time.now,
+    street_number: 2, street_name: 'University Private', postal_code: 'K1N 6H5', city: 'Ottawa', province_state: 'ON', country: 'Canada',
+    email: 'password2@boss.co',
+    password: 'password'
+  },
+  {
+    sin: '123-456-782',
+    full_name: 'Akinyele',
+    registration_date: Time.now,
+    street_number: 3, street_name: 'University Private', postal_code: 'K1N 6H5', city: 'Ottawa', province_state: 'ON', country: 'Canada',
+    email: 'password3@boss.co',
+    password: 'password'
   }
 ])
