@@ -16,13 +16,11 @@ The database structure can be found at [csi2132-project/db/structure.sql](https:
 
 ### Where is the Database?
 The database uses a [Heroku database](https://devcenter.heroku.com/articles/heroku-postgresql)
-[plugin](https://elements.heroku.com/addons/heroku-postgresql). A valid Heroku account that has access to the
-project `csi2132-e-hotels` will be necessary to project's database. See below for more info.
+[plugin](https://elements.heroku.com/addons/heroku-postgresql).
 
 ### System requirements
 - Ruby version 2.6.1
 - Rails version 5.2.2
-- Heroku
 - PostgreSQL
 
 ### How do I install the requirements?
@@ -52,16 +50,6 @@ rvm use 2.6.1
 gem install rails -v 5.2.2
 ```
 
-#### Install Heroku
-Please make sure to [sign up](https://signup.heroku.com/) for an free account if you don't have Heroku.
-Please visit [Heroku CLI's official documentation](https://devcenter.heroku.com/articles/heroku-cli) for installing
-`heroku`.
-
-Once installed, please login:
-```
-heroku login -i
-```
-
 ### How do I run this project?
 First of all, please clone and CD into the directory. Install alls packages by
 running `bundle`.
@@ -85,3 +73,10 @@ psql $DATABASE_URL -f db/structure.sql
 rails db:seed
 rails s
 ```
+
+You should be good to go.
+
+### Notes
+- Each model (ie: table) is located in `app/models`
+- Models have `has_many` and `belongs_to` associations. For some models, an equivalent SQL query was added.
+
