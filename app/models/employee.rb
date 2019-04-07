@@ -7,11 +7,22 @@ class Employee < ApplicationRecord
   before_save :ensure_address!
   before_save :ensure_manager!
 
-  belongs_to :address, foreign_key: [:street_number, :street_name, :postal_code], optional: true, dependent: :destroy
-  belongs_to :hotel
+  belongs_to :address, foreign_key: [:street_number, :street_name, :postal_code], optional: true
+  belongs_to :hotel, dependent: :destroy
 
   has_many :bookings, foreign_key: :employee_sin
   has_many :rentings, foreign_key: :employee_sin
+
+  has_many :employees, foreign_key: :manager_sin
+
+  before_destroy {
+    bookings.update_all(employee_sin: nil)
+    rentings.update_all(employee_sin: nil)
+    
+    if employees.size > 0
+      employees.destroy_all
+    end
+  }
 
   before_save {
     role.downcase! if role

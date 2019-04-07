@@ -5,6 +5,9 @@ class ApplicationRecord < ActiveRecord::Base
     errors.to_a.join ', '
   end
 
+  before_destroy {
+  }
+
   protected
 
   def ensure_address!

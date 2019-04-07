@@ -1,7 +1,7 @@
 class HotelChain < ApplicationRecord
 
   belongs_to :address, foreign_key: [:street_number, :street_name, :postal_code], optional: true
-  has_many :hotels
+  has_many :hotels, dependent: :destroy
 
   before_save :ensure_address!
 

@@ -3,6 +3,7 @@ class Hotel < ApplicationRecord
   belongs_to :hotel_chain
   belongs_to :manager, foreign_key: :manager_sin, class_name: 'Employee', optional: true
   has_many :rooms, foreign_key: [:hotel_id], dependent: :destroy
+  has_many :employees, dependent: :destroy
 
   def name
     hotel_chain.nil? ? nil : hotel_chain.name
