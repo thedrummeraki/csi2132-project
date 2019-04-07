@@ -186,7 +186,7 @@ HotelChain.create([
  }
 ])
 
-Hotel.create([
+Hotel.create!([
   {
     category: 1,
     phone_number: '6131234561',
@@ -352,7 +352,7 @@ Hotel.create([
     phone_number: '6132660085',
     email: 'newalbacorehotel5@inkopolis.ink',
     hotel_chain_id: HotelChain.find_by(contact_email: 'newalbacorehotel@inkopolis.ink').id,
-    street_number: 510, street_name: 'Vanity Street', postal_code: 'K1N 6H5',
+    street_number: 510, street_name: 'Vanity Street', postal_code: 'G7G 8G8',
     city: 'Winnipeg', province_state: 'MB', country: 'Canada'
   },
   {
@@ -360,7 +360,7 @@ Hotel.create([
     phone_number: '6132660086',
     email: 'newalbacorehotel6@inkopolis.ink',
     hotel_chain_id: HotelChain.find_by(contact_email: 'newalbacorehotel@inkopolis.ink').id,
-    street_number: 4232, street_name: 'Vanity Street', postal_code: 'K1N 6H5',
+    street_number: 4232, street_name: 'Vanity Street', postal_code: 'G7G 8G8',
     city: 'Winnipeg', province_state: 'MB', country: 'Canada'
   },
   {
@@ -984,7 +984,7 @@ Room.create([
     capacity: 1
   },
   {
-    room_number: 101,
+    room_number: 110,
     hotel_id: Hotel.find_by(email: 'reserve7@uottawa.ca').id,
     price: 79.99,
     capacity: 1
@@ -2003,5 +2003,15 @@ Room.create([
     price: 79.99,
     capacity: 1
   }
+])
 
+Customer.create([
+  {
+    sin: '123-456-789',
+    full_name: 'Akinyele',
+    registration_date: Time.now,
+    street_number: 1, street_name: 'University Private', postal_code: 'K1N 6H5', city: 'Ottawa', province_state: 'ON', country: 'Canada',
+    email: 'akinyele@boss.co',
+    password: 'toronto'
+  }
 ])
