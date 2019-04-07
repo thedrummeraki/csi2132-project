@@ -217,7 +217,7 @@ CREATE OR REPLACE FUNCTION make_renting_on_booking_check_in()
   RETURNS TRIGGER AS
   $BODY$
   BEGIN
-  IF new.status = 'complete' AND status <> old.status AND NOT EXISTS(SELECT 1 FROM rentings WHERE booking_id = new.id) THEN
+  IF new.status = 'complete' AND new.status <> old.status AND NOT EXISTS(SELECT 1 FROM rentings WHERE booking_id = new.id) THEN
   INSERT INTO rentings(status, employee_sin, start_date, end_date, customer_sin, room_number, hotel_id, booking_id, has_booked, created_at, updated_at)
   VALUES ('renting', old.employee_sin, old.start_date, old.end_date, old.customer_sin, old.room_number, old.hotel_id, new.id, 'f', now(), now());
   END IF;

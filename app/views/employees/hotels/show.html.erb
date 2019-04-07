@@ -79,3 +79,48 @@
     </div>
   <% end %>
 </div>
+
+<div class="container-fluid" style="padding: 40px;">
+  <div class="text-center">
+    <h3>rooms list (<%= @rooms.size %>)</h3>
+  </div>
+
+  <% if @rooms.empty? %>
+    <div class="text-center">
+      <strong class="text-muted">
+        It looks like no rooms have been made yet. <br />
+      </strong>
+    </div>
+  <% else %>
+    <table class="table">
+      <thead class="thead-light">
+        <th scope="col">Room #</th>
+        <th scope="col">Rate</th>
+        <th scope="col">Capacity</th>
+        <th scope="col">Mountain view?</th>
+        <th scope="col">Sea view?</th>
+        <th scope="col">Expandable?</th>
+        <th scope="col">Occupied?</th>
+        <th scope="col">Full?</th>
+        <th scope="col">Issues</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <% @rooms.each do |room| %>
+          <tr>
+            <td><%= room.room_number %></td>
+            <td><%= number_to_currency(room.price) %></td>
+            <td><%= room.capacity %></td>
+            <td><%= boolean_badge(room.mountain_view) %></td>
+            <td><%= boolean_badge(room.sea_view) %></td>
+            <td><%= boolean_badge(room.is_expandable) %></td>
+            <td><%= boolean_badge(room.is_occupied?) %></td>
+            <td><%= boolean_badge(room.is_full?) %></td>
+            <td><%= room.issues %></td>
+            <td><%= link_to('Details', employees_room_path(room), class: 'btn btn-sm btn-info') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

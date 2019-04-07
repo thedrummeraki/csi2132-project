@@ -18,4 +18,16 @@ class Room < ApplicationRecord
   def other
     self.class.where("room_number != #{room_number} or hotel_id != #{hotel_id}")
   end
+  
+  def is_occupied?(date: Time.now)
+    bookings.where(status: 'complete')
+      .where("start_date >= '#{date}' and end_date <= '#{date}'")
+      .count > 0
+  end
+
+  def is_full?(date: Time.now)
+    bookings.where(status: 'complete')
+      .where("start_date >= '#{date}' and end_date <= '#{date}'")
+      .count >= capacity
+  end
 end

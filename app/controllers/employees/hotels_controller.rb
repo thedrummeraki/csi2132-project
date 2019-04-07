@@ -12,6 +12,7 @@ module Employees
 
     def show
       @hotel = Hotel.find(params[:id])
+      @rooms = @hotel.rooms
     end
 
     def update
@@ -35,7 +36,8 @@ module Employees
         :postal_code,
         :city,
         :province_state,
-        :country
+        :country,
+        :manager_sin
       )
     end
 

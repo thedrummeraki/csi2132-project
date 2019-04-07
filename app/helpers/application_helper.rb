@@ -23,14 +23,18 @@ module ApplicationHelper
     colour_badge(model.status)
   end
 
+  def boolean_badge(value)
+    value ? colour_badge('yes') : colour_badge('no')
+  end
+
   def colour_badge(value)
     color = nil
     case value
     when 'started'
       color = 'info'
-    when 'complete', 'regular'
+    when 'complete', 'regular', 'yes'
       color = 'success'
-    when 'cancelled', 'manager'
+    when 'cancelled', 'manager', 'no'
       color = 'danger'
     else
       color = 'secondary'

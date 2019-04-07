@@ -22,7 +22,7 @@
         <th scope="col">From (date)</th>
         <th scope="col">Until (date)</th>
         <th scope="col">Hotel</th>
-        <th scope="col">Area</th>
+        <th scope="col">Address</th>
         <th scope="col">Room #</th>
         <th scope="col">Rate</th>
         <th scope="col">Made on</th>
@@ -39,7 +39,7 @@
             <td><%= booking.start_date.strftime('%Y %b %d') %></td>
             <td><%= booking.end_date.strftime('%Y %b %d') %></td>
             <td><%= booking.room.hotel.name %></td>
-            <td><%= booking.room.hotel.address.area %></td>
+            <td><%= booking.room.hotel.address.pretty %></td>
             <td><%= link_to(booking.room.room_number.to_s, room_path(booking.room)) %></td>
             <td><%= number_to_currency(booking.room.price) %></td>
             <td><%= booking.created_at.strftime('%Y %b %d') %></td>

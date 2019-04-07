@@ -97,6 +97,7 @@
         <th scope="col">Contact email</th>
         <th scope="col">Full address</th>
         <th scope="col">Manager</th>
+        <th scope="col">Rooms #</th>
         <th scope="col">Created on</th>
         <th scope="col">Updated on</th>
         <th>Action</th>
@@ -118,6 +119,7 @@
                 <% end %>
               <% end %>
             </td>
+            <td><%= hotel.rooms.count %></td>
             <td><%= hotel.created_at.strftime('%Y %b %d') %></td>
             <td><%= hotel.updated_at.strftime('%Y %b %d') %></td>
             <td><%= link_to('Details', employees_hotel_path(hotel), class: 'btn btn-sm btn-info') %></td>

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :rentings
     resources :hotel_chains
     resources :hotels
+    resources :rooms
     resources :employees
   end
 

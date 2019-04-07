@@ -64,7 +64,7 @@ class Search
 
   def hotels_by_area_sql(area)
     # Get all possible areas, lower cased
-    areas = area.split(/[\s,']/)
+    areas = area.split(/[,']/)
       .reject{|w| w.empty?}
       .map{|w| w.downcase}
 
@@ -76,7 +76,7 @@ class Search
       partial_sql = []
       areas.each do |area|
         area_sql = []
-        [:city, :province_state, :country].each do |attribute|
+        [:city, :province_state, :country, :postal_code].each do |attribute|
           area_sql.push "LOWER(hotels.#{attribute}) like '%#{area}%'"
         end
         partial_sql << "(#{area_sql.join(' OR ')})"

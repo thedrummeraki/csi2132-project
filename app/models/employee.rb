@@ -36,6 +36,10 @@ class Employee < ApplicationRecord
     "https://api.adorable.io/avatars/#{size}/#{sin}.png"
   end
 
+  def new_bookings_count
+    Booking.where(status: 'started').count
+  end
+
   def self.list_managers
     all.to_a.select{|e| e.is_manager?}.collect{|m| [m.full_name, m.sin]}
   end
@@ -44,6 +48,7 @@ class Employee < ApplicationRecord
 
   def ensure_manager!
     if manager.nil?
+      return if manager_sin == sin
       errors.add(:manager, 'must exist.')
       throw :abort
     end

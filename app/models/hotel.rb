@@ -1,7 +1,7 @@
 class Hotel < ApplicationRecord
   belongs_to :address, foreign_key: [:street_number, :street_name, :postal_code]
   belongs_to :hotel_chain
-  belongs_to :manager, foreign_key: :manager_sin, class_name: 'Employee'
+  belongs_to :manager, foreign_key: :manager_sin, class_name: 'Employee', optional: true
   has_many :rooms, foreign_key: [:hotel_id]
 
   def name
