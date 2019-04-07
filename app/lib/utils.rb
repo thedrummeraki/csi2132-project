@@ -22,10 +22,10 @@ class Utils
 
   def self.possible_room_sizes
     [
-      ['1-20 rooms', 1],
-      ['20-50 rooms', 2],
-      ['50-100 rooms', 3],
-      ['100+ rooms', 4]
+      ['Less than 5 rooms', 1],
+      ['5 to 10 rooms', 2],
+      ['10 to 15 rooms', 3],
+      ['15+ rooms', 4]
     ]
   end
 

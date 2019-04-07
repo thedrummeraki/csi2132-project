@@ -19,7 +19,7 @@ class Search
 
     final_sql = "SELECT rooms.* FROM rooms "
     final_sql << "INNER JOIN ("
-    final_sql << "SELECT hotels.* from hotels "
+    final_sql << "SELECT * from hotels "
     final_sql << "INNER JOIN (SELECT count(*) room_count, hotel_id FROM ("
     final_sql << "SELECT * FROM rooms "
     final_sql << "INNER JOIN hotels ON hotels.id = hotel_id"
@@ -34,7 +34,8 @@ class Search
         category: category,
         hotel_chain_id: hotel_chain_id
       ),
-      range_to_sql(:price, price_range)
+      range_to_sql(:price, price_range),
+      range_to_sql(:room_count, size_range)
     ].reject{|condition| condition.strip.empty?}.join(' AND ')
 
     unless additional_conditions.empty?
@@ -93,8 +94,8 @@ class Search
     return '' if range.nil?
     min = range[:min]
     max = range[:max]
-    min_sql = "#{type} > #{min}"
-    max_sql = "#{type} < #{max}"
+    min_sql = "#{type} >= #{min}"
+    max_sql = "#{type} <= #{max}"
     sql = ""
     sql << min_sql unless min.nil?
     unless max.nil?
@@ -110,17 +111,17 @@ class Search
   def range_for(type, value)
     range = {
       room_count: {
-        "1": {min: 1, max: 4},
-        "2": {min: nil, max: nil},
-        "3": {min: nil, max: nil},
-        "4": {min: nil, max: nil}
+        "1": {min: nil, max: 5},
+        "2": {min: 5, max: 10},
+        "3": {min: 10, max: 15},
+        "4": {min: 15, max: nil}
       },
       price: {
         "1": {min: nil, max: 50},
         "2": {min: 51, max: 70},
         "3": {min: 71, max: 100},
         "4": {min: 100, max: 200},
-        "5": {min: 100, max: nil}
+        "5": {min: 200, max: nil}
       }
     }
     range = HashWithIndifferentAccess.new(range)
