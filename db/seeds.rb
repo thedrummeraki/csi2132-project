@@ -560,1445 +560,1481 @@ Room.create([
   {
     room_number: 100,
     hotel_id: Hotel.find_by(email: 'reserve1@uottawa.ca').id,
-    price: 79.99,
+    price: 50.99,
     capacity: 1
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'reserve1@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 78.99,
+    capacity: 2
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'reserve1@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 132.99,
+    capacity: 3
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'reserve1@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 101.99,
+    capacity: 4
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'reserve1@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 165.99,
+    capacity:5
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'reserve1@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 42.99,
+    capacity: 6
   },
   {
     room_number: 106,
     hotel_id: Hotel.find_by(email: 'reserve1@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 76.99,
+    capacity: 7
   },
   {
     room_number: 107,
     hotel_id: Hotel.find_by(email: 'reserve1@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 45.99,
+    capacity: 8
   },
   {
     room_number: 108,
     hotel_id: Hotel.find_by(email: 'reserve1@uottawa.ca').id,
-    price: 79.99,
+    price: 76.99,
     capacity: 1
   },
   {
     room_number: 109,
     hotel_id: Hotel.find_by(email: 'reserve1@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 48.99,
+    capacity: 2
   },
   {
     room_number: 110,
     hotel_id: Hotel.find_by(email: 'reserve1@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 67.99,
+    capacity: 3
   },
   {
     room_number: 100,
     hotel_id: Hotel.find_by(email: 'reserve2@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 67.99,
+    capacity: 2
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'reserve2@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 56.99,
+    capacity: 2
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'reserve2@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 78.99,
+    capacity: 2
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'reserve2@uottawa.ca').id,
     price: 79.99,
-    capacity: 1
+    capacity: 3
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'reserve2@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 75.99,
+    capacity: 3
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'reserve2@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 100.99,
+    capacity: 4
   },
   {
     room_number: 106,
     hotel_id: Hotel.find_by(email: 'reserve2@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 105.99,
+    capacity: 4
   },
   {
     room_number: 107,
     hotel_id: Hotel.find_by(email: 'reserve2@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 98.99,
+    capacity: 5
   },
   {
     room_number: 108,
     hotel_id: Hotel.find_by(email: 'reserve2@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 89.99,
+    capacity: 5
   },
   {
     room_number: 109,
     hotel_id: Hotel.find_by(email: 'reserve2@uottawa.ca').id,
     price: 79.99,
-    capacity: 1
+    capacity: 6
   },
   {
     room_number: 110,
     hotel_id: Hotel.find_by(email: 'reserve2@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 45.99,
+    capacity: 6
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'reserve3@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 45.99,
+    capacity: 7
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'reserve3@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 99.99,
+    capacity: 7
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'reserve3@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 65.99,
+    capacity: 8
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'reserve3@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 105.99,
+    capacity: 8
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'reserve3@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 34.99,
+    capacity: 8
   },
   {
     room_number: 106,
     hotel_id: Hotel.find_by(email: 'reserve3@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 145.99,
+    capacity: 8
   },
   {
     room_number: 107,
     hotel_id: Hotel.find_by(email: 'reserve3@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 99.99,
+    capacity: 8
   },
   {
     room_number: 108,
     hotel_id: Hotel.find_by(email: 'reserve3@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 99.99,
+    capacity: 3
   },
   {
     room_number: 109,
     hotel_id: Hotel.find_by(email: 'reserve3@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 133.99,
+    capacity: 3
   },
   {
     room_number: 110,
     hotel_id: Hotel.find_by(email: 'reserve3@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 133.99,
+    capacity: 3
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'reserve4@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 133.99,
+    capacity: 5
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'reserve4@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 133.99,
+    capacity: 5
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'reserve4@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 178.99,
+    capacity: 5
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'reserve4@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 178.99,
+    capacity: 5
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'reserve4@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 178.99,
+    capacity: 6
   },
   {
     room_number: 106,
     hotel_id: Hotel.find_by(email: 'reserve4@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 113.99,
+    capacity: 6
   },
   {
     room_number: 107,
     hotel_id: Hotel.find_by(email: 'reserve4@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 113.99,
+    capacity: 6
   },
   {
     room_number: 108,
     hotel_id: Hotel.find_by(email: 'reserve4@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 113.99,
+    capacity: 6
   },
   {
     room_number: 109,
     hotel_id: Hotel.find_by(email: 'reserve4@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 124.99,
+    capacity: 2
   },
   {
     room_number: 110,
     hotel_id: Hotel.find_by(email: 'reserve4@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 124.99,
+    capacity: 2
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'reserve5@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 124.99,
+    capacity: 2
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'reserve5@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 124.99,
+    capacity: 4
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'reserve5@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 124.99,
+    capacity: 4
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'reserve5@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 124.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'reserve5@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 164.99,
+    capacity: 2
   },
   {
     room_number: 106,
     hotel_id: Hotel.find_by(email: 'reserve5@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 164.99,
+    capacity: 2
   },
   {
     room_number: 107,
     hotel_id: Hotel.find_by(email: 'reserve5@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 164.99,
+    capacity: 2
   },
   {
     room_number: 108,
     hotel_id: Hotel.find_by(email: 'reserve5@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 164.99,
+    capacity: 6
   },
   {
     room_number: 109,
     hotel_id: Hotel.find_by(email: 'reserve5@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 164.99,
+    capacity: 6
   },
   {
     room_number: 110,
     hotel_id: Hotel.find_by(email: 'reserve5@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 164.99,
+    capacity: 6
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'reserve6@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 164.99,
+    capacity: 6
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'reserve6@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 197.99,
+    capacity: 6
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'reserve6@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 197.99,
+    capacity: 6
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'reserve6@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 197.99,
+    capacity: 7
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'reserve6@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 64.99,
+    capacity: 7
   },
   {
     room_number: 106,
     hotel_id: Hotel.find_by(email: 'reserve6@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 64.99,
+    capacity: 7
   },
   {
     room_number: 107,
     hotel_id: Hotel.find_by(email: 'reserve6@uottawa.ca').id,
-    price: 79.99,
+    price: 64.99,
     capacity: 1
   },
   {
     room_number: 108,
     hotel_id: Hotel.find_by(email: 'reserve6@uottawa.ca').id,
-    price: 79.99,
+    price: 64.99,
     capacity: 1
   },
   {
     room_number: 109,
     hotel_id: Hotel.find_by(email: 'reserve6@uottawa.ca').id,
-    price: 79.99,
+    price: 64.99,
     capacity: 1
   },
   {
     room_number: 110,
     hotel_id: Hotel.find_by(email: 'reserve6@uottawa.ca').id,
-    price: 79.99,
+    price: 64.99,
     capacity: 1
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'reserve7@uottawa.ca').id,
-    price: 79.99,
+    price: 64.99,
     capacity: 1
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'reserve7@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 64.99,
+    capacity: 2
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'reserve7@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 896.99,
+    capacity: 2
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'reserve7@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 896.99,
+    capacity: 2
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'reserve7@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 896.99,
+    capacity: 2
   },
   {
     room_number: 106,
     hotel_id: Hotel.find_by(email: 'reserve7@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 896.99,
+    capacity: 5
   },
   {
     room_number: 107,
     hotel_id: Hotel.find_by(email: 'reserve7@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 896.99,
+    capacity: 5
   },
   {
     room_number: 108,
     hotel_id: Hotel.find_by(email: 'reserve7@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 896.99,
+    capacity: 5
   },
   {
     room_number: 109,
     hotel_id: Hotel.find_by(email: 'reserve7@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 896.99,
+    capacity: 5
   },
   {
     room_number: 110,
     hotel_id: Hotel.find_by(email: 'reserve7@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 891.99,
+    capacity: 4
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'reserve8@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 891.99,
+    capacity: 4
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'reserve8@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 12.99,
+    capacity: 4
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'reserve8@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 12.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'reserve8@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 12.99,
+    capacity: 4
   },
   {
     room_number: 106,
     hotel_id: Hotel.find_by(email: 'reserve8@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 55.99,
+    capacity: 4
   },
   {
     room_number: 107,
     hotel_id: Hotel.find_by(email: 'reserve8@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 55.99,
+    capacity: 7
   },
   {
     room_number: 108,
     hotel_id: Hotel.find_by(email: 'reserve8@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 89.99,
+    capacity: 7
   },
   {
     room_number: 109,
     hotel_id: Hotel.find_by(email: 'reserve8@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 89.99,
+    capacity: 7
   },
   {
     room_number: 110,
     hotel_id: Hotel.find_by(email: 'reserve8@uottawa.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 67.99,
+    capacity: 7
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'shinomya1@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 250.99,
+    capacity: 2
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'shinomya1@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 255.99,
+    capacity: 2
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'shinomya1@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 255.99,
+    capacity: 2
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'shinomya1@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 255.99,
+    capacity: 2
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'shinomya1@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 255.99,
+    capacity: 3
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'shinomya2@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 300.99,
+    capacity: 3
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'shinomya2@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 300.99,
+    capacity: 3
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'shinomya2@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 300.99,
+    capacity: 3
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'shinomya2@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 310.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'shinomya2@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 310.99,
+    capacity: 4
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'shinomya3@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 310.99,
+    capacity: 4
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'shinomya3@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 355.99,
+    capacity: 2
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'shinomya3@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 355.99,
+    capacity: 2
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'shinomya3@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 355.99,
+    capacity: 3
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'shinomya3@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 355.99,
+    capacity: 3
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'shinomya4@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 376.99,
+    capacity: 3
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'shinomya4@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 376.99,
+    capacity: 2
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'shinomya4@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 376.99,
+    capacity: 3
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'shinomya4@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 376.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'shinomya4@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 376.99,
+    capacity: 2
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'shinomya5@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 400.99,
+    capacity: 2
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'shinomya5@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 400.99,
+    capacity: 3
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'shinomya5@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 400.99,
+    capacity: 4
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'shinomya5@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 400.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'shinomya5@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 415.99,
+    capacity: 4
+  },
+  {
+    room_number: 106,
+    hotel_id: Hotel.find_by(email: 'shinomya5@sugoihotels.jp').id,
+    price: 414.99,
+    capacity: 3
+  },
+  {
+    room_number: 107,
+    hotel_id: Hotel.find_by(email: 'shinomya5@sugoihotels.jp').id,
+    price: 411.99,
+    capacity: 4
+  },
+  {
+    room_number: 108,
+    hotel_id: Hotel.find_by(email: 'shinomya5@sugoihotels.jp').id,
+    price: 412.99,
+    capacity: 3
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'shinomya6@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 410.99,
+    capacity: 4
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'shinomya6@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 410.99,
+    capacity: 2
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'shinomya6@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 410.99,
+    capacity: 3
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'shinomya6@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 410.99,
+    capacity: 3
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'shinomya6@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 425.99,
+    capacity: 3
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'shinomya7@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 425.99,
+    capacity: 3
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'shinomya7@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 430.99,
+    capacity: 4
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'shinomya7@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 430.99,
+    capacity: 4
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'shinomya7@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 435.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'shinomya7@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 435.99,
+    capacity: 5
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'shinomya8@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 500.99,
+    capacity: 5
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'shinomya8@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 500.99,
+    capacity: 5
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'shinomya8@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 500.99,
+    capacity: 3
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'shinomya8@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 234.99,
+    capacity: 3
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'shinomya8@sugoihotels.jp').id,
-    price: 79.99,
-    capacity: 1
+    price: 234.99,
+    capacity: 3
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel1@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 100.99,
+    capacity: 3
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel1@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 100.99,
+    capacity: 2
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel1@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 100.99,
+    capacity: 2
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel1@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 110.99,
+    capacity: 5
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel1@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 110.99,
+    capacity: 5
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel2@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 110.99,
+    capacity: 3
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel2@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 115.99,
+    capacity: 3
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel2@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 115.99,
+    capacity: 4
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel2@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 118.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel2@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 118.99,
+    capacity: 3
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel3@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 114.99,
+    capacity: 3
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel3@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 114.99,
+    capacity: 2
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel3@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 124.99,
+    capacity: 2
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel3@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 124.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel3@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 135.99,
+    capacity: 4
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel4@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 135.99,
+    capacity: 4
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel4@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 135.99,
+    capacity: 2
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel4@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 112.99,
+    capacity: 2
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel4@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 112.99,
+    capacity: 3
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel4@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 112.99,
+    capacity: 3
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel5@inkopolis.ink').id,
-    price: 79.99,
+    price: 154.99,
     capacity: 1
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel5@inkopolis.ink').id,
-    price: 79.99,
+    price: 154.99,
     capacity: 1
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel5@inkopolis.ink').id,
-    price: 79.99,
+    price: 154.99,
     capacity: 1
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel5@inkopolis.ink').id,
-    price: 79.99,
+    price: 98.99,
     capacity: 1
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel5@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 98.99,
+    capacity: 2
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel6@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 65.99,
+    capacity: 2
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel6@inkopolis.ink').id,
     price: 79.99,
-    capacity: 1
+    capacity: 5
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel6@inkopolis.ink').id,
     price: 79.99,
-    capacity: 1
+    capacity: 5
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel6@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 62.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel6@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 62.99,
+    capacity: 4
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel7@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 62.99,
+    capacity: 6
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel7@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 45.99,
+    capacity: 6
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel7@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 45.99,
+    capacity: 4
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel7@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 77.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel7@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 77.99,
+    capacity: 4
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel8@inkopolis.ink').id,
-    price: 79.99,
+    price: 77.99,
     capacity: 1
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel8@inkopolis.ink').id,
-    price: 79.99,
+    price: 80.99,
     capacity: 1
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel8@inkopolis.ink').id,
-    price: 79.99,
+    price: 80.99,
     capacity: 1
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel8@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 87.99,
+    capacity: 3
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'newalbacorehotel8@inkopolis.ink').id,
-    price: 79.99,
-    capacity: 1
+    price: 87.99,
+    capacity: 3
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'happyfuntimes1@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 103.99,
+    capacity: 3
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'happyfuntimes1@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 103.99,
+    capacity: 5
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'happyfuntimes1@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 103.99,
+    capacity: 5
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'happyfuntimes1@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 103.99,
+    capacity: 5
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'happyfuntimes1@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 103.99,
+    capacity: 3
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'happyfuntimes2@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 103.99,
+    capacity: 3
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'happyfuntimes2@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 104.99,
+    capacity: 3
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'happyfuntimes2@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 104.99,
+    capacity: 5
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'happyfuntimes2@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 104.99,
+    capacity: 5
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'happyfuntimes2@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 176.99,
+    capacity: 5
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'happyfuntimes3@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 176.99,
+    capacity: 5
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'happyfuntimes3@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 176.99,
+    capacity: 4
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'happyfuntimes3@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 163.99,
+    capacity: 4
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'happyfuntimes3@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 163.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'happyfuntimes3@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 163.99,
+    capacity: 6
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'happyfuntimes4@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 114.99,
+    capacity: 6
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'happyfuntimes4@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 114.99,
+    capacity: 6
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'happyfuntimes4@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 114.99,
+    capacity: 2
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'happyfuntimes4@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 115.99,
+    capacity: 2
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'happyfuntimes4@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 115.99,
+    capacity: 2
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'happyfuntimes5@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 115.99,
+    capacity: 4
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'happyfuntimes5@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 115.99,
+    capacity: 4
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'happyfuntimes5@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 141.99,
+    capacity: 4
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'happyfuntimes5@fun.com').id,
-    price: 79.99,
+    price: 141.99,
     capacity: 1
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'happyfuntimes5@fun.com').id,
-    price: 79.99,
+    price: 163.99,
     capacity: 1
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'happyfuntimes6@fun.com').id,
-    price: 79.99,
+    price: 163.99,
     capacity: 1
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'happyfuntimes6@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 165.99,
+    capacity: 3
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'happyfuntimes6@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 165.99,
+    capacity: 3
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'happyfuntimes6@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 114.99,
+    capacity: 3
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'happyfuntimes6@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 114.99,
+    capacity: 5
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'happyfuntimes7@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 185.99,
+    capacity: 5
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'happyfuntimes7@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 185.99,
+    capacity: 3
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'happyfuntimes7@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 185.99,
+    capacity: 3
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'happyfuntimes7@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 126.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'happyfuntimes7@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 126.99,
+    capacity: 4
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'happyfuntimes8@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 151.99,
+    capacity: 4
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'happyfuntimes8@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 151.99,
+    capacity: 7
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'happyfuntimes8@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 161.99,
+    capacity: 7
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'happyfuntimes8@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 161.99,
+    capacity: 3
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'happyfuntimes8@fun.com').id,
-    price: 79.99,
-    capacity: 1
+    price: 161.99,
+    capacity: 3
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'cool1@kid.ca').id,
-    price: 79.99,
+    price: 89.99,
     capacity: 1
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'cool1@kid.ca').id,
-    price: 79.99,
+    price: 89.99,
     capacity: 1
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'cool1@kid.ca').id,
-    price: 79.99,
+    price: 89.99,
     capacity: 1
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'cool1@kid.ca').id,
-    price: 79.99,
+    price: 89.99,
     capacity: 1
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'cool1@kid.ca').id,
-    price: 79.99,
+    price: 89.99,
     capacity: 1
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'cool2@kid.ca').id,
-    price: 79.99,
+    price: 89.99,
     capacity: 1
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'cool2@kid.ca').id,
-    price: 79.99,
+    price: 89.99,
     capacity: 1
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'cool2@kid.ca').id,
-    price: 79.99,
+    price: 99.99,
     capacity: 1
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'cool2@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 99.99,
+    capacity: 5
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'cool2@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 99.99,
+    capacity: 5
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'cool3@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 99.99,
+    capacity: 5
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'cool3@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 99.99,
+    capacity: 5
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'cool3@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 99.99,
+    capacity: 5
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'cool3@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 99.99,
+    capacity: 5
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'cool3@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 99.99,
+    capacity: 5
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'cool4@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 99.99,
+    capacity: 5
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'cool4@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 109.99,
+    capacity: 5
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'cool4@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 109.99,
+    capacity: 4
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'cool4@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 109.99,
+    capacity: 4
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'cool4@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 109.99,
+    capacity: 4
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'cool5@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 119.99,
+    capacity: 4
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'cool5@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 119.99,
+    capacity: 3
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'cool5@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 119.99,
+    capacity: 3
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'cool5@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 119.99,
+    capacity: 3
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'cool5@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 129.99,
+    capacity: 6
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'cool6@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 129.99,
+    capacity: 6
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'cool6@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 129.99,
+    capacity: 6
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'cool6@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 129.99,
+    capacity: 6
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'cool6@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 139.99,
+    capacity: 8
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'cool6@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 139.99,
+    capacity: 8
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'cool7@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 139.99,
+    capacity: 8
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'cool7@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 139.99,
+    capacity: 8
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'cool7@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 139.99,
+    capacity: 8
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'cool7@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 149.99,
+    capacity: 8
   },
   {
     room_number: 105,
     hotel_id: Hotel.find_by(email: 'cool7@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 149.99,
+    capacity: 4
   },
   {
     room_number: 101,
     hotel_id: Hotel.find_by(email: 'cool8@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 149.99,
+    capacity: 4
   },
   {
     room_number: 102,
     hotel_id: Hotel.find_by(email: 'cool8@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 149.99,
+    capacity: 3
   },
   {
     room_number: 103,
     hotel_id: Hotel.find_by(email: 'cool8@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 149.99,
+    capacity: 4
   },
   {
     room_number: 104,
     hotel_id: Hotel.find_by(email: 'cool8@kid.ca').id,
-    price: 79.99,
-    capacity: 1
+    price: 159.99,
+    capacity: 6
   },
   {
     room_number: 105,
+    hotel_id: Hotel.find_by(email: 'cool8@kid.ca').id,
+    price: 143.99,
+    capacity: 5
+  },
+  {
+    room_number: 106,
+    hotel_id: Hotel.find_by(email: 'cool8@kid.ca').id,
+    price: 123.99,
+    capacity: 3
+  },
+  {
+    room_number: 107,
+    hotel_id: Hotel.find_by(email: 'cool8@kid.ca').id,
+    price: 159.99,
+    capacity: 2
+  },
+  {
+    room_number: 108,
     hotel_id: Hotel.find_by(email: 'cool8@kid.ca').id,
     price: 79.99,
     capacity: 1
@@ -2011,7 +2047,23 @@ Customer.create([
     full_name: 'Akinyele',
     registration_date: Time.now,
     street_number: 1, street_name: 'University Private', postal_code: 'K1N 6H5', city: 'Ottawa', province_state: 'ON', country: 'Canada',
-    email: 'akinyele@boss.co',
-    password: 'toronto'
+    email: 'password1@boss.co',
+    password: 'password'
+  },
+  {
+    sin: '123-456-781',
+    full_name: 'Akinyele',
+    registration_date: Time.now,
+    street_number: 2, street_name: 'University Private', postal_code: 'K1N 6H5', city: 'Ottawa', province_state: 'ON', country: 'Canada',
+    email: 'password2@boss.co',
+    password: 'password'
+  },
+  {
+    sin: '123-456-782',
+    full_name: 'Akinyele',
+    registration_date: Time.now,
+    street_number: 3, street_name: 'University Private', postal_code: 'K1N 6H5', city: 'Ottawa', province_state: 'ON', country: 'Canada',
+    email: 'password3@boss.co',
+    password: 'password'
   }
 ])
