@@ -1,4 +1,4 @@
-module Customer
+module Customers
   class RentingsController < ApplicationController
     before_action :authenticate_customer!
 
