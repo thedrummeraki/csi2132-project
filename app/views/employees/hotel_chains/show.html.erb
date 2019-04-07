@@ -22,6 +22,11 @@
             <small class="form-text text-muted">This name will be associated with each hotel under this chain.</small>
           </div>
 
+          <div class="form-group">
+            <%= f.label :contact_email, 'Contact email' %>
+            <%= f.text_field :contact_email, class: 'form-control', placeholder: 'Ex: contact@email.com', autocomplete: 'off' %>
+          </div>
+
           <p><strong>Headquaters address</strong></p>
 
           <div class="form-row">

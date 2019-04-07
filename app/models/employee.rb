@@ -13,6 +13,10 @@ class Employee < ApplicationRecord
   has_many :bookings, foreign_key: :employee_sin
   has_many :rentings, foreign_key: :employee_sin
 
+  before_save {
+    role.downcase! if role
+  }
+
   # SELECT * FROM employees where manager_sin = #{sin} AND sin != #{sin};
   def employees
     self.class.where("manager_sin = '#{sin}' AND sin != '#{sin}'")
