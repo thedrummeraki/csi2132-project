@@ -12,7 +12,7 @@ module Employees
 
     def show
       @hotel = Hotel.find(params[:id])
-      @rooms = @hotel.rooms
+      @rooms = @hotel.rooms.order(:room_number)
     end
 
     def update

@@ -1,0 +1,94 @@
+
+<div class="container" style="padding: 40px;">
+  <div class="hf-section">
+    <h3>Edit room information</h3>
+    <div class="card" style="margin-bottom: 20px;">
+      <div class="card-body">
+        <div class="d-flex justify-content-between w-100">
+          <span>Room number: <strong class="text-muted"><code><%= @room.room_number %></code></strong></span>
+          <span>Hotel id: <strong class="text-muted"><code><%= @room.hotel_id %></code></strong></span>
+          <span>Created on: <strong class="text-muted"><%= @room.created_at.strftime("%Y %B %d at %H:%m:%S") %></strong></span>
+        </div>
+        <div class="text-right" style="margin-top: 5px;">
+          <strong>Hotel: <%= link_to(@room.hotel.address.pretty, employees_hotel_path(@room.hotel), class: 'text-muted') %></strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= form_for(@room, as: :room, url: employees_room_path(@room), html: { method: :patch }) do |f| %>
+      <div class="row">
+        <div class="col-8">
+          <p><strong>Basic settings</strong></p>
+          <div class="form-group">
+            <%= f.label :price, 'Nighty rate (in dollars $)' %>
+            <%= f.number_field :price, class: 'form-control', placeholder: 'How much per night?', step: '0.01', autocomplete: 'off' %>
+          </div>
+
+          <p><strong>Hotel information</strong></p>
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label class="sr-only" for="hotel">Hotel</label>
+              <%= f.select 'hotel_id', Hotel.list_hotels, {include_blank: "- Select a hotel -"}, {class: 'custom-select'} %>
+            </div>
+          </div>
+
+          <p><strong>Room settings</strong></p>
+
+          <div class="form-row">
+            <div class="form-group col-md-4 w-100">
+              <p>Sea view?</p>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary <%= 'active' if @room.sea_view == true %>">
+                  <%= f.radio_button :sea_view, true %> Yes
+                </label>
+                <label class="btn btn-secondary <%= 'active' if @room.sea_view == false %>">
+                  <%= f.radio_button :sea_view, false %> No
+                </label>
+              </div>
+            </div>
+            <div class="form-group col-md-4 w-100">
+              <p>Mountain view?</p>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary <%= 'active' if @room.mountain_view == true %>">
+                  <%= f.radio_button :mountain_view, true %> Yes
+                </label>
+                <label class="btn btn-secondary <%= 'active' if @room.mountain_view == false %>">
+                  <%= f.radio_button :mountain_view, false %> No
+                </label>
+              </div>
+            </div>
+            <div class="form-group col-md-4 w-100">
+              <p>Room expandable?</p>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary <%= 'active' if @room.is_expandable == true %>">
+                  <%= f.radio_button :is_expandable, true %> Yes
+                </label>
+                <label class="btn btn-secondary <%= 'active' if @room.is_expandable == false %>">
+                  <%= f.radio_button :is_expandable, false %> No
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <p><strong>Issues</strong></p>
+
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <%= f.label :issues, class: 'sr-only' %>
+              <%= f.text_area :issues, class: 'form-control', placeholder: 'Anything that is wrong with the room?' %>
+            </div>
+          </div>
+          <div class="row" style="padding-top: 30px;">
+            <div class="col-md-4">
+              <%= link_to('Back to hotel', employees_hotel_path(@room.hotel), class: 'btn btn-block btn-secondary btn-sm') %>
+            </div>
+            <div class="col-md-8">
+              <%= f.submit 'Update employee information', class: 'btn btn-block btn-sm btn-info' %>
+            </div>
+          </div>
+      </div>
+    </div>
+  <% end %>
+</div>

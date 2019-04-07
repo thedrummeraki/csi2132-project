@@ -3,6 +3,8 @@ class Room < ApplicationRecord
   belongs_to :hotel
   has_many :bookings, foreign_key: [:room_number, :hotel_id]
 
+  before_destroy :archive_bookings
+
   def similar
     return other if hotel.nil?
     sql = <<-SQL
@@ -18,7 +20,7 @@ class Room < ApplicationRecord
   def other
     self.class.where("room_number != #{room_number} or hotel_id != #{hotel_id}")
   end
-  
+
   def is_occupied?(date: Time.now)
     bookings.where(status: 'complete')
       .where("start_date >= '#{date}' and end_date <= '#{date}'")
@@ -29,5 +31,11 @@ class Room < ApplicationRecord
     bookings.where(status: 'complete')
       .where("start_date >= '#{date}' and end_date <= '#{date}'")
       .count >= capacity
+  end
+
+  private
+
+  def archive_bookings
+    bookings.update_all(status: 'archived', room_number: nil, hotel_id: nil)
   end
 end
