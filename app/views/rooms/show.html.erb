@@ -56,15 +56,22 @@
             </div>
           </div>
         </div>
-
-
+        <div class="text-center">
+          <% if params[:end_date].blank? || params[:start_date].blank? %>
+            <p class="text-warning">This room may not be available.</p>
+          <% elsif @available %>
+            <p class="text-success">This room is available.</p>
+          <% else %>
+            <p class="text-danger">This room is not available.</p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="card">
     <div class="card-body">
-      <% if logged_in?(as: :customer) %>
+      <% if logged_in?(as: :customer) && @available && !params[:end_date].blank? && !params[:start_date].blank? %>
         <div class="justify-content-between w-100 d-flex">
           <h4>Booking details</h4>
         </div>
@@ -105,6 +112,12 @@
             <%= f.submit 'Agree & book', class: 'btn btn-block btn-info' %>
           </div>
         <% end %>
+      <% elsif params[:end_date].blank? || params[:start_date].blank? %>
+        <h5>This room room might not be available at this time. Please go back to the search results and enter new dates.</h5>
+      <% elsif !@available %>
+        <div class="text-center">
+          <h5>This room room is not available at this time. Please go back to the search results and enter new dates.</h5>
+        </div>
       <% else %>
         <div class="text-center">
           <h5>Please sign in <%= link_to 'here', new_customer_session_path %> to start managing your bookings!</h5>
