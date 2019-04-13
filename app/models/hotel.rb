@@ -9,8 +9,17 @@ class Hotel < ApplicationRecord
     hotel_chain.nil? ? nil : hotel_chain.name
   end
 
+  def room_count
+    attributes['room_count']
+  end
+
   def self.list_hotels
     all.to_a.collect{|hotel| ["Hotel-#{hotel.id} - #{hotel.address.pretty} ", hotel.id]}
+  end
+
+  # Uses the VIEW 2
+  def self.hotels_by_rooms_count
+    Hotel.find_by_sql('select * from hotels_by_rooms_count')
   end
 
   def image_url

@@ -159,13 +159,11 @@ CREATE TABLE rooms(
     mountain_view BOOLEAN default 'f' NOT NULL,
     sea_view BOOLEAN default 'f' NOT NULL,
     is_expandable BOOLEAN default 'f' NOT NULL,
-    booking_id INT,
     hotel_id INT NOT NULL,
     issues TEXT default '',
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL,
 
-    FOREIGN KEY(booking_id) REFERENCES bookings(id),
     FOREIGN KEY(hotel_id) REFERENCES hotels(id),
     CONSTRAINT pk_room PRIMARY KEY (room_number, hotel_id)
 );
@@ -270,3 +268,19 @@ CREATE TRIGGER check_hotel_addresses
   ON hotels
   FOR EACH ROW
   EXECUTE PROCEDURE ensure_address_exists();
+
+CREATE VIEW rooms_by_area AS
+  SELECT rooms.*, hotels.city, hotels.province_state, hotels.country
+  FROM rooms
+  INNER JOIN hotels
+  ON hotels.id = rooms.hotel_id;
+
+CREATE VIEW hotels_by_rooms_count AS
+  SELECT * FROM hotels
+  NATURAL JOIN (
+    SELECT count(*) AS rooms_count, hotels.id AS id FROM hotels
+    INNER JOIN rooms
+    ON rooms.hotel_id = hotels.id
+    GROUP BY hotels.id
+    HAVING count(*) > 0
+  ) AS hotels_info;
